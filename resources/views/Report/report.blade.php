@@ -23,8 +23,8 @@
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <label for="name"> Subject:</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <label for="judul"> Subject:</label>
+                                <input type="text" class="form-control" id="judul" name="judul" required>
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label for="deskripsi"> Deskripsi:</label>

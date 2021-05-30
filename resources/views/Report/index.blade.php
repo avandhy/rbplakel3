@@ -26,11 +26,11 @@
                         <tbody>
                             @foreach($report as $r)
                             <tr>
-                                <td>{{ $r->name }}</td>
-                                <td>{{ $r->deskripsi }}</td>
+                                <td>{{ $r->judul_report }}</td>
+                                <td>{{ $r->deskripsi_report }}</td>
                                 <td>
-                                    <a href="/report/edit/{{ $r->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/report/hapus/{{ $r->id }}" class="btn btn-danger">Hapus</a>
+                                    <a href="/report/edit/{{ $r->id_report }}" class="btn btn-warning">Edit</a>
+                                    <a href="/report/hapus/{{ $r->id_report }}" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

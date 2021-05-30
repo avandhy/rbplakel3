@@ -15,18 +15,18 @@
                     <a href="/report" class="btn btn-primary">Kembali</a>
                     <br/>
                     <br/>
-                    <form method="post" action="/report/update/{{ $report->id }}">
+                    <form method="post" action="/report/update/{{ $report->id_report }}">
 
                         {{ csrf_field() }}
-                       
+
 
                         <div class="form-group">
-                            <label for="name">Nama</label>
-                            <input type="text" name="name" class="form-control"  value=" {{ $report-> name }}">
+                            <label for="judul">Nama</label>
+                            <input type="text" name="judul" class="form-control"  value=" {{ $report-> judul_report }}">
                         </div>
                         <div class="form-group">
                             <label for="deskripsi">Alamat</label>
-                            <textarea name="deskripsi" class="form-control" > {{ $report-> deskripsi }} </textarea>
+                            <textarea name="deskripsi" class="form-control" > {{ $report-> deskripsi_report }} </textarea>
                         </div>
 
                         <div class="form-group">

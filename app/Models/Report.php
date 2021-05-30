@@ -10,7 +10,9 @@ class Report extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'deskripsi',
+        'judul_report',
+        'deskripsi_report',
     ];
+
+    protected $primaryKey = 'id_report';
 }

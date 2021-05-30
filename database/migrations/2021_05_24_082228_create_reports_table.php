@@ -14,9 +14,14 @@ class CreateReportsTable extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('deskripsi');
+            $table->increments('id_report');
+            $table->string('judul_report')->nullable();
+            $table->string('deskripsi_report');
+            $table->integer('id_question')->references('id_question')->on('questions');
+            $table->integer('id_answer')->references('id_answer')->on('answers');
+            $table->integer('id_file')->references('id_file')->on('files');
+            $table->integer('id_report_categories')->references('id_report_categories')->on('reportcategories');
+            $table->integer('id_user')->references('id_user')->on('users');
             $table->timestamps();
         });
     }

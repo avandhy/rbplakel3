@@ -15,7 +15,7 @@ class ReportController extends Controller
     {
         //
         $report = \App\Models\Report::all();
-        return view('index',['report'=> $report]);
+        return view('Report/index',['report'=> $report]);
     }
 
     /**
@@ -26,7 +26,7 @@ class ReportController extends Controller
     public function create()
     {
         //
-        return view('report');
+        return view('Report/report');
     }
 
     /**
@@ -39,8 +39,8 @@ class ReportController extends Controller
     {
         //
         \App\Models\Report::create([
-            'name'=> $request->get('name'),
-            'deskripsi'=> $request->get('deskripsi'),
+            'judul_report'=> $request->get('judul'),
+            'deskripsi_report'=> $request->get('deskripsi'),
         ]);
         return redirect('/report');
     }
@@ -66,7 +66,7 @@ class ReportController extends Controller
     {
         //
         $report = \App\Models\Report::find($id);
-        return view('edit', ['report' => $report]);
+        return view('Report/edit', ['report' => $report]);
     }
 
     /**
@@ -80,8 +80,8 @@ class ReportController extends Controller
     {
         //
         $report = \App\Models\Report::find($id);
-        $report -> name = $request -> name;
-        $report -> deskripsi = $request -> deskripsi;
+        $report -> judul_report = $request -> judul;
+        $report -> deskripsi_report = $request -> deskripsi;
         $report -> save();
 
         return redirect('/report');
