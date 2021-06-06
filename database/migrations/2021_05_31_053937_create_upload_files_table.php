@@ -14,11 +14,16 @@ class CreateUploadFilesTable extends Migration
     public function up()
     {
         Schema::create('upload_files', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Judul');
+            $table->increments('id_file');
+            $table->string('nama_file');
+            $table->string('universitas_file');
+            $table->string('matakuliah_file');
+            $table->integer('semester_file');
             $table->string('file');
-            $table->float('ukuran');
-            $table->timestamps();
+            $table->float('size');
+            $table->char('extension');
+            $table->integer('id_user')->references('id')->on('users');
+            $table->integer('id_file_categories')->references('id')->on('file_categories');
         });
     }
 
