@@ -10,9 +10,13 @@ class UserProfileController extends Controller
     {
         $profile = Profile::find($id);
         return view('profiles.show', compact('profile'));
-    }
+    } 
+    public function edit(){}
+    public function update(){}
+    public function upload(){}
+    public function deleteUserAccount(){}
 
 
-    public function delete()
-    public function update()
+    {
+
 }
