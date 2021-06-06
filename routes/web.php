@@ -31,3 +31,11 @@ Route::post('/forum/read/1/store', 'AnswerController@store');
 Route::get('/forum/read/1/edit/{id_answer}', 'AnswerController@edit');
 Route::post('/forum/read/1/update/{id_answer}', 'AnswerController@update');
 Route::get('/forum/read/1/hapus/{id_answer}', 'AnswerController@destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
