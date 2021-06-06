@@ -21,6 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //tambahan baru
+            $table->string('university');
+            $table->integer('semester');
+
+
+
         });
     }
 
