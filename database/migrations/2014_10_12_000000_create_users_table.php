@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             //tambahan baru
             $table->string('university');
             $table->integer('semester');
+            $table->src('photo)->nullable();
 
 
 
