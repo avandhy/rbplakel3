@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Report - Marketask</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+@extends('layouts.app', ['class' => 'bg-default'])
 
-
-    </head>
-    <body >
+@section('content')
+    <div class="bg-gradient-primary py-7 py-lg-8">
         <div class="container">
-            <div class="row " style="margin-top: 50px">
-                <div class="col-md-6 col-md-offset-3 form-container">
-                    <h2>Report</h2>
-                    <br>
-                    <br>
-                    <a href="/report" class="btn btn-primary">Kembali</a>
-                    <br>
-                    <br>
+            <div class="row justify-content-center text-center">
+                <div class="col-sm-3 ">
+                    <h1>REPORT</h1>
+                </div>
+            </div>
+                <div class=" form-container">
                     <form role="form" method="post" action="/report/store">
                         {{ csrf_field() }}
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
+                        <div class="row justify-content-center ">
+                            <div class="col-sm-6 form-group">
                                 <label for="judul"> Subject:</label>
                                 <input type="text" class="form-control" id="judul" name="judul" required>
                             </div>
-                            <div class="col-sm-12 form-group">
+                            <div class="col-sm-6 form-group">
                                 <label for="deskripsi"> Deskripsi:</label>
-                                <textarea type="textarea" class="form-control" id="deskripsi" name="deskripsi" rows="8" required></textarea>
+                                <textarea class="form-control form-control-alternative" id="deskripsi" name="deskripsi" rows="3" required></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -38,7 +28,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection
+
