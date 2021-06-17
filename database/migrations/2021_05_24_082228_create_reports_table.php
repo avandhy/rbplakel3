@@ -21,7 +21,7 @@ class CreateReportsTable extends Migration
             $table->integer('id_answer')->references('id_answer')->on('answers');
             $table->integer('id_file')->references('id_file')->on('files');
             $table->integer('id_report_categories')->references('id_report_categories')->on('reportcategories');
-            $table->integer('id_user')->references('id_user')->on('users');
+            $table->integer('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }

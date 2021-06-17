@@ -23,7 +23,7 @@ class CreateUploadFilesTable extends Migration
             $table->float('size');
             $table->char('extension');
             $table->integer('id_user')->references('id')->on('users');
-            $table->integer('id_file_categories')->references('id')->on('file_categories');
+            $table->integer('id_file_categories')->references('id_file_categories')->on('file_categories');
         });
     }
 
