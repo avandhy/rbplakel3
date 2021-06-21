@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('landing');
 });
 
+//home
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 //Profile
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
@@ -37,6 +41,7 @@ Route::get('/report/edit/{id}', 'ReportController@edit');
 Route::post('/report/update/{id}', 'ReportController@update');
 Route::get('/report/hapus/{id}', 'ReportController@destroy');
 
+//forum
 Route::get('/forum/read/1','AnswerController@index'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
 Route::get('/forum/read/1/answer', 'AnswerController@create');
 Route::post('/forum/read/1/store', 'AnswerController@store');
@@ -44,13 +49,10 @@ Route::get('/forum/read/1/edit/{id_answer}', 'AnswerController@edit');
 Route::post('/forum/read/1/update/{id_answer}', 'AnswerController@update');
 Route::get('/forum/read/1/hapus/{id_answer}', 'AnswerController@destroy');
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('pages/profiles', 'ProfilesController@show');
 
-Auth::routes();
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
 
 
 Route::get('/fiturfile', 'FileController@index');
