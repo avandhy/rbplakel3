@@ -9,33 +9,40 @@ class FileController extends Controller
 {
     public function index()
     {
-        $files = DB::table('files')->get();
-        return view('RBPL.fiturfile',['files' => $files]);
+        $upload_files = DB::table('upload_files')->get();
+        return view('viewfile.liatfile',['upload_files' => $upload_files]);
     }
 
     public function tambah()
     {
-        return view('RBPL.tambahfile');
+        return view('viewfile.tambahfile');
     }
 
 	public function simpan(Request $request){
 
 		// menyimpan data file yang diupload ke variabel $file
-		$files = $request->nama;
-        $files = $request->file;
+		$upload_files = $request->nama_file;
+        $upload_files = $request->universitas_file;
+        $upload_files = $request->matakuliah_file;
+        $upload_files = $request->semester_file;
+        $upload_files = $request->file;
+        $upload_files = $request->id_user;
+        $upload_files = $request->id_file_categories;
 
-		$nama = time()."_".$files->getClientOriginalName();
+
+
+		$nama = time()."_".$upload_files->getClientOriginalName();
 
       	        // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'data_file';
-		$files->move($tujuan_upload,$nama);
+		$upload_files->move($tujuan_upload,$nama);
 
-		file::create([
-			'file' => $request->file,
-			'nama' => $request->nama,
-		]);
+		// file::create([
+		// 	'file' => $request->file,
+		// 	'nama' => $request->nama,
+		// ]);
 
-		return redirect('/fiturfile');
+		// return redirect('/fiturfile');
 	}
 
 }

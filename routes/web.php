@@ -53,6 +53,6 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 
-Route::get('/fiturfile', 'App\Http\Controllers\FileController@index');
-Route::get('/fiturfile/tambahfile', 'App\Http\Controllers\FileController@tambah');
-Route::post('/fiturfile/simpanfile','App\Http\Controllers\FileController@simpan');
+Route::get('/fiturfile', 'FileController@index');
+Route::get('/fiturfile/tambahfile', 'FileController@tambah');
+Route::post('/fiturfile/simpanfile','FileController@simpan');
