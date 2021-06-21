@@ -42,16 +42,19 @@
                 <table class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th >File</th>
-							<th>Nama File</th>
-							<th>OPSI</th>
+							<th >Nama File</th>
+							<th>Universitas</th>
+							<th>Mata Kuliah</th>
+                            <th>Semester</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($files as $f)
+						@foreach($upload_files as $f)
 						<tr>
-							<td>{{$f->file}}</td>
-							<td>{{$f->nama}}</td>
+							<td>{{$f->nama_file}}</td>
+							<td>{{$f->universitas_file}}</td>
+                            <td>{{$f->matakuliah_file}}</td>
+                            <td>{{$f->semester_file}}</td>
 							<td><a class="btn btn-danger" href="/upload/hapus/{{}}">Download</a></td>
 						</tr>
 						@endforeach

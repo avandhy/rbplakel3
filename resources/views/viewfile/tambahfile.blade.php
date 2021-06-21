@@ -29,6 +29,18 @@
 						<b>Nama File</b>
 						<input type="text" name="nama">
 					</div>
+                    <div class="form-group">
+						<b>Universitas</b>
+						<input type="text" name="nama">
+					</div>
+                    <div class="form-group">
+						<b>Mata Kuliah</b>
+						<input type="text" name="nama">
+					</div>
+                    <div class="form-group">
+						<b>Semester</b>
+						<input type="text" name="nama">
+					</div>
 
                     <div class="form-group">
 						<b>Pilih File</b><br/>
