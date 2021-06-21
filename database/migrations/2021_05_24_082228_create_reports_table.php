@@ -17,11 +17,11 @@ class CreateReportsTable extends Migration
             $table->increments('id_report');
             $table->string('judul_report')->nullable();
             $table->string('deskripsi_report');
-            $table->integer('id_question')->references('id_question')->on('questions');
-            $table->integer('id_answer')->references('id_answer')->on('answers');
-            $table->integer('id_file')->references('id_file')->on('files');
-            $table->integer('id_report_categories')->references('id_report_categories')->on('reportcategories');
-            $table->integer('id_user')->references('id')->on('users');
+            $table->integer('id_question')->references('id_question')->on('questions')->nullable();
+            $table->integer('id_answer')->references('id_answer')->on('answers')->nullable();
+            $table->integer('id_file')->references('id_file')->on('files')->nullable();
+            $table->integer('id_report_categories')->references('id_report_categories')->on('reportcategories')->nullable();
+            $table->integer('id_user')->references('id')->on('users')->nullable();
             $table->timestamps();
         });
     }
