@@ -42,7 +42,7 @@ class ReportController extends Controller
             'judul_report'=> $request->get('judul'),
             'deskripsi_report'=> $request->get('deskripsi'),
         ]);
-        return redirect('/report');
+        return redirect('/report/create');
     }
 
     /**

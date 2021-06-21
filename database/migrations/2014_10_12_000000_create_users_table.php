@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             //tambahan baru
-            $table->string('university');
-            $table->integer('semester');
+            $table->string('university')->nullable();
+            $table->integer('semester')->nullable();
             $table->binary('photo')->nullable();
 
 
