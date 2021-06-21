@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tulis Pertanyaan Anda</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+@extends('layouts.app', ['class' => 'bg-default'])
 
-
-    </head>
+@section('content')
     <body >
         <div class="container">
             <div class="row " style="margin-top: 50px">
                 <div class="col-md-6 col-md-offset-3 form-container">
                     <br>
                     <br>
-                    <a href="/forum/question" class="btn btn-primary">Kembali</a>
+                    <a href="/Question" class="btn btn-primary">Kembali</a>
                     <br>
                     <br>
-                    <form role="form" method="post" action="/forum/question/store">
+                    <form role="form" method="post" action="/Question/store">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-12 form-group">
@@ -44,3 +37,4 @@
         </div>
     </body>
 </html>
+@endsection

@@ -1,10 +1,6 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-        <title>Pertanyaan</title> 
-    </head>
+@extends('layouts.app', ['class' => 'bg-default'])
+
+@section('content')
     <body>
         <div class="container">
             <div class="card mt-5">
@@ -12,7 +8,7 @@
                     Pertanyaan Anda
                 </div>
                 <div class="card-body">
-                    <a href="/forum/question/create" class="btn btn-primary">Tambah Pertanyaan</a>
+                    <a href="/Question/create" class="btn btn-primary">Tambah Pertanyaan</a>
                     <br/>
                     <br/>
                     <table class="table table-bordered table-hover table-striped">
@@ -40,4 +36,4 @@
         </div>
     </body>
 </html>
-
+@endsection
