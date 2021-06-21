@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/report/edit/{id}', 'ReportController@edit');
     Route::post('/report/update/{id}', 'ReportController@update');
     Route::get('/report/hapus/{id}', 'ReportController@destroy');
-};
+});
 
 
 //forum
