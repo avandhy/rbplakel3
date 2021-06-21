@@ -34,12 +34,15 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Report
-Route::get('/report', 'ReportController@index');
-Route::get('/report/create', 'ReportController@create');
-Route::post('/report/store', 'ReportController@store');
-Route::get('/report/edit/{id}', 'ReportController@edit');
-Route::post('/report/update/{id}', 'ReportController@update');
-Route::get('/report/hapus/{id}', 'ReportController@destroy');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/report', 'ReportController@index');
+    Route::get('/report/create', 'ReportController@create');
+    Route::post('/report/store', 'ReportController@store');
+    Route::get('/report/edit/{id}', 'ReportController@edit');
+    Route::post('/report/update/{id}', 'ReportController@update');
+    Route::get('/report/hapus/{id}', 'ReportController@destroy');
+};
+
 
 //forum
 Route::get('/forum/read/1','AnswerController@index'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
