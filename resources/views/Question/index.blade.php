@@ -24,8 +24,8 @@
                                 <td>{{ $q->judul }}</td>
                                 <td>{{ $q->isi_pertanyaan }}</td>
                                 <td>
-                                    <a href="/report/edit/{{ $r->idpertanyaan }}" class="btn btn-warning">Edit</a>
-                                    <a href="/report/hapus/{{ $r->idpertanyaan }}" class="btn btn-danger">Hapus</a>
+                                    <a href="/Question/edit/{{ $q->idpertanyaan }}" class="btn btn-warning">Edit</a>
+                                    <a href="/Question/hapus/{{ $q->idpertanyaan }}" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
