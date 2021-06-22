@@ -16,7 +16,8 @@ class ReportController extends Controller
         //
         //$report = \App\Models\Report::all();
         $report = DB::table('reports')->join('report_categories', 'reports.id_report_categories', '=', 'report_categories.id_report_categories')
-                                        ->select('reports.*', 'report_categories.nama_report_categories')
+                                        ->join('users', 'reports.id_user', '=', 'users.id')
+                                        ->select('reports.*', 'report_categories.nama_report_categories', 'users.name')
                                         ->get();
         return view('Report/index',['report'=> $report]);
     }
@@ -42,10 +43,12 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //
+        $userid = auth()->user()->id;
         \App\Models\Report::create([
             'judul_report'=> $request->get('judul'),
             'deskripsi_report'=> $request->get('deskripsi'),
             'id_report_categories'=> $request->get('idcategories'),
+            'id_user'=> $userid,
         ]);
         return redirect('/report/create');
     }

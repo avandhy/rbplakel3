@@ -39,7 +39,7 @@
                         <i class="ni ni-collection"></i>
                         <span>{{ __('My File') }}</span>
                     </a>
-                    <a href="report/create" class="dropdown-item">
+                    <a href="/report/create" class="dropdown-item">
                         <i class="ni ni-notification-70"></i>
                         <span>{{ __('Report') }}</span>
                     </a>

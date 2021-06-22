@@ -54,8 +54,8 @@ Route::get('/forum/read/1/hapus/{id_answer}', 'AnswerController@destroy');
 
 
 Route::get('pages/profiles', 'ProfilesController@show');
-
-
+Route::get('/user', 'UserController@index')->name('user.index');
+Route::get('/user/hapus/{id}', 'UserController@destroy');
 
 
 Route::get('/fiturfile', 'FileController@index');

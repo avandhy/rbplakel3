@@ -13,6 +13,7 @@ class Report extends Model
         'judul_report',
         'deskripsi_report',
         'id_report_categories',
+        'id_user',
     ];
 
     protected $primaryKey = 'id_report';
