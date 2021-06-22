@@ -53,13 +53,6 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 
-Route::get('/fiturfile', 'App\Http\Controllers\FileController@index');
-Route::get('/fiturfile/tambahfile', 'App\Http\Controllers\FileController@tambah');
-Route::post('/fiturfile/simpanfile','App\Http\Controllers\FileController@simpan');
-
-Route::get('/Question','QuestionController@index');
-Route::get('/Question/create', 'QuestionController@create');
-Route::post('/Question/store', 'QuestionController@store');
-Route::get('/Question/edit/{id}', 'QuestionController@edit');
-Route::post('/Question/update/{id}', 'QuestionController@update');
-Route::get('/Question/hapus/{id}', 'QuestionController@destroy');
+Route::get('/fiturfile', 'FileController@index');
+Route::get('/fiturfile/tambahfile', 'FileController@tambah');
+Route::post('/fiturfile/simpanfile','FileController@simpan');
