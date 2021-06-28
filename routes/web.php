@@ -46,11 +46,7 @@ Route::get('/report/edit/{id}', 'ReportController@edit');
 Route::post('/report/update/{id}', 'ReportController@update');
 Route::get('/report/hapus/{id}', 'ReportController@destroy');
 
-<<<<<<< HEAD
 //forum
-=======
-//Answer
->>>>>>> a6e3d974639f620a5aca1781ae7cd07d58809190
 Route::get('/forum/read/1','AnswerController@index'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
 Route::get('/forum/read/1/answer', 'AnswerController@create');
 Route::post('/forum/read/1/store', 'AnswerController@store');
@@ -58,16 +54,12 @@ Route::get('/forum/read/1/edit/{id_answer}', 'AnswerController@edit');
 Route::post('/forum/read/1/update/{id_answer}', 'AnswerController@update');
 Route::get('/forum/read/1/hapus/{id_answer}', 'AnswerController@destroy');
 
-<<<<<<< HEAD
 
 Route::get('pages/profiles', 'ProfilesController@show');
 
 
 
 
-=======
-//Fitur File
->>>>>>> a6e3d974639f620a5aca1781ae7cd07d58809190
 Route::get('/fiturfile', 'FileController@index');
 Route::get('/fiturfile/tambahfile', 'FileController@tambah');
 Route::post('/fiturfile/simpanfile','FileController@simpan');
