@@ -66,7 +66,7 @@ class QuestionController extends Controller
     public function edit($id)
     {
         //
-        $pertanyaan = \App\Models\Question::find($id);
+        $question = \App\Models\Question::find($id);
         return view('Question/edit', ['question' => $question]);
     }
 
@@ -82,7 +82,7 @@ class QuestionController extends Controller
         //
         $question = \App\Models\question::find($id);
         $question -> judul = $request -> judul;
-        $question -> isi_jawaban = $request -> isi_jawaban;
+        $question -> isi_pertanyaan = $request -> isi_pertanyaan;
         $question -> save();
 
         return redirect('/Question');
@@ -97,8 +97,8 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         //
-        $answer = \App\Models\Question::find($id);
-        $answer -> delete();
+        $question = \App\Models\Question::find($id);
+        $question -> delete();
         return redirect('/Question');
     }
 }

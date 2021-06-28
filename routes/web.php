@@ -39,13 +39,14 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Report
-Route::get('/report', 'ReportController@index');
-Route::get('/report/create', 'ReportController@create');
-Route::post('/report/store', 'ReportController@store');
-Route::get('/report/edit/{id}', 'ReportController@edit');
-Route::post('/report/update/{id}', 'ReportController@update');
-Route::get('/report/hapus/{id}', 'ReportController@destroy');
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/report', 'ReportController@index');
+    Route::get('/report/create', 'ReportController@create');
+    Route::post('/report/store', 'ReportController@store');
+    Route::get('/report/edit/{id}', 'ReportController@edit');
+    Route::post('/report/update/{id}', 'ReportController@update');
+    Route::get('/report/hapus/{id}', 'ReportController@destroy');
+});
 //forum
 Route::get('/forum/read/1','AnswerController@index'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
 Route::get('/forum/read/1/answer', 'AnswerController@create');
@@ -54,11 +55,14 @@ Route::get('/forum/read/1/edit/{id_answer}', 'AnswerController@edit');
 Route::post('/forum/read/1/update/{id_answer}', 'AnswerController@update');
 Route::get('/forum/read/1/hapus/{id_answer}', 'AnswerController@destroy');
 
-
 Route::get('pages/profiles', 'ProfilesController@show');
 
-
-
+Route::get('/Question','QuestionController@index');
+Route::get('/Question/create', 'QuestionController@create');
+Route::post('/Question/store', 'QuestionController@store');
+Route::get('/Question/edit/{id}', 'QuestionController@edit');
+Route::post('/Question/update/{id}', 'QuestionController@update');
+Route::get('/Question/hapus/{id}', 'QuestionController@destroy');
 
 Route::get('/fiturfile', 'FileController@index');
 Route::get('/fiturfile/tambahfile', 'FileController@tambah');
