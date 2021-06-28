@@ -26,7 +26,7 @@ class QuestionController extends Controller
     public function create()
     {
         //
-        return view('Question/pertanyaan');
+        return view('Question/Question');
     }
 
     /**
@@ -43,7 +43,7 @@ class QuestionController extends Controller
             'isi_pertanyaan'=> $request->get('isi_pertanyaan'),
             'gambar_pertanyaan'=> $request->get('gambar_pertanyaan')
         ]);
-        return redirect('/pertanyaan');
+        return redirect('/Question');
     }
 
     /**
@@ -85,7 +85,7 @@ class QuestionController extends Controller
         $question -> isi_jawaban = $request -> isi_jawaban;
         $question -> save();
 
-        return redirect('/pertanyaan');
+        return redirect('/Question');
     }
 
     /**
@@ -99,7 +99,7 @@ class QuestionController extends Controller
         //
         $answer = \App\Models\Question::find($id);
         $answer -> delete();
-        return redirect('/pertanyaan');
+        return redirect('/Question');
     }
 }
 
