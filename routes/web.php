@@ -70,4 +70,5 @@ Route::get('pages/profiles', 'ProfilesController@show');
 
 Route::get('/fiturfile', 'FileController@index');
 Route::get('/fiturfile/tambahfile', 'FileController@tambah');
-Route::post('/fiturfile/simpanfile','FileController@simpan');
+Route::post('/fiturfile/simpanfile{id}','FileController@simpan');
+Route::get('/datamodem/hapus/{id}','FileController@hapus');

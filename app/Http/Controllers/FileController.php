@@ -29,20 +29,32 @@ class FileController extends Controller
         $upload_files = $request->id_user;
         $upload_files = $request->id_file_categories;
 
-
-
-		$nama = time()."_".$upload_files->getClientOriginalName();
+		$nama_file = time()."_".$upload_files->getClientOriginalName();
 
       	        // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'data_file';
-		$upload_files->move($tujuan_upload,$nama);
+		$upload_files->move($tujuan_upload,$nama_file);
 
-		// file::create([
-		// 	'file' => $request->file,
-		// 	'nama' => $request->nama,
-		// ]);
+		DB::create([
+			'nama_file' => $request->nama_file,
+			'universitas_file' => $request->universitas_file,
+            'matakuliah_file' => $request->matakuliah_file,
+            'semester_file' => $request->semester_file,
+            'request_file' => $request->file,
+            'id_user' => $request->id_user,
+            'id_file_categories'=> $request->id_file_categories,
+		]);
 
-		// return redirect('/fiturfile');
+		return redirect('/fiturfile');
 	}
+
+    public function hapus($id)
+	{
+		// menghapus data files berdasarkan id yang dipilih
+        DB::table('upload_files')->where('id_file',$id)->delete();
+
+		// alihkan halaman ke halaman pegawai
+		return redirect('/fiturfile');
+    }
 
 }

@@ -5,52 +5,71 @@
 
 </head>
 <body>
-	<div class="row">
-		<div class="container">
-			<h2 class="text-center my-5">Tambah Data File</h2>
+    @extends('layouts.app')
 
+    @section('content')
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+        <div class="container-fluid">
+            <div class="header-body"></div>
+        </div>
+    </div>
+	<div class="container-fluid">
+        <div class="col-1"></div>
+            <div class="col-10"></div>
+                <div class="container-fluid mt--7">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card shadow">
+                                <div class="card-header border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h1 class="mb-0">Tambah Data File</h1>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <a href="/fiturfile" class="btn btn-success btn-sm active"> < Kembali</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="card-body border-0">
 
-			<div class="col-lg-8 mx-auto my-5">
-                <a href="/fiturfile" class="btn btn-success btn-sm active" role="button" aria-pressed="true" > < Kembali</a>
-                <br/>
-                <br/>
-				@if(count($errors) > 0)
-				<div class="alert alert-danger">
-					@foreach ($errors->all() as $error)
-					{{ $error }} <br/>
-					@endforeach
-				</div>
-				@endif
+                                        <form action="/fiturfile/simpanfile{id}" method="POST" enctype="multipart/form-data">
+                                            {{ csrf_field() }}
 
-				<form action="/fiturfile/simpanfile" method="POST" enctype="multipart/form-data">
-					{{ csrf_field() }}
+                                            <div class="form-group">
+                                                <label for="judul">Nama File</label>
+                                                <input type="text" class="form-control" id="judul" name="judul" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="judul">Universitas</label>
+                                                <input type="text" class="form-control" id="judul" name="judul" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="judul">Mata Kuliah</label>
+                                                <input type="text" class="form-control" id="judul" name="judul" required>
+                                            </div>
+                                            <div class="form-group" style="width: 8%">
+                                                <label for="judul">Semester</label>
+                                                <input type="text" class="form-control" id="judul" name="judul" required>
+                                            </div>
 
-					<div class="form-group">
-						<b>Nama File</b>
-						<input type="text" name="nama">
-					</div>
-                    <div class="form-group">
-						<b>Universitas</b>
-						<input type="text" name="nama">
-					</div>
-                    <div class="form-group">
-						<b>Mata Kuliah</b>
-						<input type="text" name="nama">
-					</div>
-                    <div class="form-group">
-						<b>Semester</b>
-						<input type="text" name="nama">
-					</div>
+                                            <div class="form-group">
+                                                <label>Pilih File</label> <br/>
+                                                <input type="file" name="file">
+                                            </div>
 
-                    <div class="form-group">
-						<b>Pilih File</b><br/>
-						<input type="file" name="file">
-					</div>
+                                            <input type="submit" value="Upload" class="btn btn-primary">
+                                        </form>
 
-					<input type="submit" value="Upload" class="btn btn-primary">
-				</form>
-			</div>
-		</div>
-	</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @include('layouts.footers.auth')
+            </div>
+        <div class="col-1"></div>
+    </div>
+    @endsection
 </body>
 </html>
