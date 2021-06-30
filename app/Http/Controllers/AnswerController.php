@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+
 
 class AnswerController extends Controller
 {
@@ -14,7 +15,9 @@ class AnswerController extends Controller
     public function index()
     {
         //
-        $answer = \App\Models\Answer::all();
+        $answer = DB::table('answers')
+        ->select('select * from answers')
+        ->get();
         return view('Answer/index',['answer'=> $answer]);
     }
 
@@ -23,10 +26,12 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id_answer)
     {
         //
-        return view('Answer/answer');
+        $answer = DB:: table('answers') ->where('id_answer', $id_answer)->get()
+       ;
+        return view('Answer/answerTEST', ['answer' =>$answer]);
     }
 
     /**
@@ -39,6 +44,8 @@ class AnswerController extends Controller
     {
         //
         \App\Models\Answer::create([
+            'id_answer'=>$request->get('id_answer'),
+            'id_userr'=>$request->get('id_answer'),
             'judul'=> $request->get('judul'),
             'isi_jawaban'=> $request->get('isi_jawaban'),
             'gambar_jawaban'=> $request->get('gambar_jawaban')
