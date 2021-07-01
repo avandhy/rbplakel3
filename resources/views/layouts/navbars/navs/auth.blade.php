@@ -35,7 +35,7 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('My profile') }}</span>
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="/fiturfile" class="dropdown-item">
                         <i class="ni ni-collection"></i>
                         <span>{{ __('My File') }}</span>
                     </a>

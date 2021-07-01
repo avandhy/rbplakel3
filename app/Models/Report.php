@@ -12,6 +12,12 @@ class Report extends Model
     protected $fillable = [
         'judul_report',
         'deskripsi_report',
+        'id_question',
+        'id_answer',
+        'id_file',
+        'id_report_categories',
+        'id_user',
+
     ];
 
     protected $primaryKey = 'id_report';
