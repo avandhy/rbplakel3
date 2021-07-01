@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Edit</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" >
+@extends('layouts.app', ['class' => 'bg-default'])
 
+@section('content')
 
-    </head>
-    <body >
+ 
         <div class="container">
             <div class="row " style="margin-top: 50px">
                 <div class="col-md-6 col-md-offset-3 form-container">
@@ -17,7 +11,7 @@
                     <a href="/Question" class="btn btn-primary">Kembali</a>
                     <br>
                     <br>
-                    <form role="form" method="post" action="/question/update/{{ $question->idpertanyaan }}">
+                    <form role="form" method="post" action="/question/update/{{ $question->id_question }}">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-12 form-group">
@@ -42,5 +36,5 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+
+@endsection

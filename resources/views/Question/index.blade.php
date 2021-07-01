@@ -9,6 +9,7 @@
                 </div>
                 <div class="card-body">
                     <a href="/Question/create" class="btn btn-primary">Tambah Pertanyaan</a>
+                    <a href="/forum/read/{id_question}/answer" class="btn btn-primary">Lihat Bagian Jawaban</a>
                     <br/>
                     <br/>
                     <table class="table table-bordered table-hover table-striped">
@@ -24,8 +25,8 @@
                                 <td>{{ $q->judul }}</td>
                                 <td>{{ $q->isi_pertanyaan }}</td>
                                 <td>
-                                    <a href="/Question/edit/{{ $q->idpertanyaan }}" class="btn btn-warning">Edit</a>
-                                    <a href="/Question/hapus/{{ $q->idpertanyaan }}" class="btn btn-danger">Hapus</a>
+                                    <a href="/Question/edit/{{ $q->id_question }}" class="btn btn-warning">Edit</a>
+                                    <a href="/Question/hapus/{{ $q->id_question }}" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

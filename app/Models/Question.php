@@ -16,5 +16,5 @@ class Question extends Model
         'gambar_pertanyaan'
     ];
 
-    protected $primaryKey = 'idpertanyaan';
+    protected $primaryKey = 'id_question';
 }
