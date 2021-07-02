@@ -16,11 +16,11 @@
                         <div class="row">
                             <div class="col-sm-12 form-group">
                                 <label for="judul"> Judul:</label>
-                                <input type="text" class="form-control" id="judul" name="judul" required>
+                                <input type="text" class="form-control" id="judul" name="judul" value="{{$question->judul}}" required>
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label for="deskripsi"> Pertanyaan:</label>
-                                <textarea type="textarea" class="form-control" id="isi_pertanyaan" name="isi_pertanyaan" rows="8" required></textarea>
+                                <textarea type="textarea" class="form-control" id="isi_pertanyaan" name="isi_pertanyaan" rows="8" value="{{$question->isi_pertanyaan}}" required></textarea>
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label for="gambar_pertanyaan"> File Pendukung</label>

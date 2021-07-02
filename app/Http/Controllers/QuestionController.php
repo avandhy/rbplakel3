@@ -18,6 +18,8 @@ class QuestionController extends Controller
         return view('Question/index',['question'=> $question]);
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
