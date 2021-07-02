@@ -11,7 +11,7 @@
                     <a href="/Question" class="btn btn-primary">Kembali</a>
                     <br>
                     <br>
-                    <form role="form" method="post" action="/question/update/{{ $question->id_question }}">
+                    <form role="form" method="post" action="/Question/update/{{ $question->id_question }}">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-sm-12 form-group">

@@ -52,7 +52,7 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_question)
     {
         //
     }
@@ -63,10 +63,10 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_question)
     {
         //
-        $question = \App\Models\Question::find($id);
+        $question = \App\Models\Question::find($id_question);
         return view('Question/edit', ['question' => $question]);
     }
 
@@ -77,10 +77,10 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_question)
     {
         //
-        $question = \App\Models\question::find($id);
+        $question = \App\Models\question::find($id_question);
         $question -> judul = $request -> judul;
         $question -> isi_pertanyaan = $request -> isi_pertanyaan;
         $question -> save();
@@ -94,10 +94,10 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_question)
     {
         //
-        $question = \App\Models\Question::find($id);
+        $question = \App\Models\Question::find($id_question);
         $question -> delete();
         return redirect('/Question');
     }
