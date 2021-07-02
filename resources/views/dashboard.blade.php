@@ -5,10 +5,13 @@
     
     <div class="container-fluid mt--7">
         <div class="row">
+      
         <a href="/forum" class="btn btn-default">KLIK UNTUK MASUK KE FORUM</a>
-            </div>
+        
+        <a href="/report" class="btn btn-danger">LAPOR</a>
+   
         </div>
-
-        @include('layouts.footers.auth')
     </div>
+ 
+
 @endsection

@@ -8,11 +8,13 @@
             <div class="header-body"></div>
         </div>
     </div>
+    
     <div class="container-fluid mt--7">
         <div class="row justify-content-center">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
+                  
                         <div>
                             <center><h1>FORUM</h1></center>
                           
@@ -29,9 +31,9 @@
                                         <p>
 
                                             <a href="/forum/Question/edit/{{ $q->id_question }}"
-                                                class="btn btn-warning">Edit</a>
+                                                class="btn btn-warning btn-sm">Edit</a>
                                             <a href="/forum/Question/hapus/{{ $q->id_question }}"
-                                                class="btn btn-danger">Hapus</a>
+                                                class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach
