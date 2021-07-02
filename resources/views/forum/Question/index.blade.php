@@ -15,9 +15,11 @@
                     <div class="card-header bg-white border-0">
                         <div>
                             <center><h1>FORUM</h1></center>
+                          
                         </div>
                     </div>
                     <div class="form-container card-body">
+                  
                         <tbody>
                             @foreach ($question as $q)
                                 <tr>
@@ -33,7 +35,10 @@
                                     </td>
                                 </tr>
                             @endforeach
+
+                           
                         </tbody>
+                        <center> <a href="/forum/Question/create" class="btn btn-primary">Tambah Pertanyaan</a></center>
                     </div>
                 </div>
             </div>
