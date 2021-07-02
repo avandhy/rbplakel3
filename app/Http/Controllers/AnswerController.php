@@ -31,7 +31,7 @@ class AnswerController extends Controller
         //
         $answer = DB:: table('answers') ->where('id_answer', $id_answer)->get()
        ;
-        return view('Answer/answerTEST', ['answer' =>$answer]);
+        return view('forum/Answer/answerTEST', ['answer' =>$answer]);
     }
 
     /**
