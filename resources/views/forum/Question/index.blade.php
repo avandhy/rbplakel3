@@ -10,7 +10,7 @@
                    FORUM
                 </div>
                 <div class="card-body">
-                    <a href="/Question/create" class="btn btn-primary">Tambah Pertanyaan</a>
+                    <a href="/forum/Question/create" class="btn btn-primary">Tambah Pertanyaan</a>
                     <br/>
                     
                     <br/>
@@ -23,9 +23,9 @@
                             <h1> {{ $q->judul }}</h1>
                             <p class="text-justify">{{ $q->isi_pertanyaan }}<p>
                            
-                            <a href="/Question/edit/{{ $q->id_question }}" class="btn btn-warning">Edit</a>
-                            <a href="/Question/hapus/{{ $q->id_question }}" class="btn btn-danger">Hapus</a>
-                            <a href="/forum/read/{id_question}/answer" class="btn btn-primary">Jawaban</a>
+                            <a href="/forum/Question/edit/{{ $q->id_question }}" class="btn btn-warning">Edit</a>
+                            <a href="/forum/Question/hapus/{{ $q->id_question }}" class="btn btn-danger">Hapus</a>
+                            <a href="/forum/read/{id_question}" class="btn btn-primary">Jawaban</a>
                             
                             </td>
                             </tr>

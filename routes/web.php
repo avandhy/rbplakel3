@@ -59,12 +59,12 @@ Route::get('/forum/read/{id_question}/edit/{id_answer}', 'AnswerController@edit'
 Route::post('/forum/read/{id_question}/update/{id_answer}', 'AnswerController@update');
 Route::get('/forum/read/{id_question}/hapus/{id_answer}', 'AnswerController@destroy');
 
-Route::get('/Question','QuestionController@index');
-Route::get('/Question/create', 'QuestionController@create');
-Route::post('/Question/store', 'QuestionController@store');
-Route::get('/Question/edit/{id_question}', 'QuestionController@edit');
-Route::post('/Question/update/{id_question}', 'QuestionController@update');
-Route::get('/Question/hapus/{id_question}', 'QuestionController@destroy');
+Route::get('/forum','QuestionController@index');
+Route::get('/forum/Question/create', 'QuestionController@create');
+Route::post('/forum/Question/store', 'QuestionController@store');
+Route::get('/forum/Question/edit/{id_question}', 'QuestionController@edit');
+Route::post('/forum/Question/update/{id_question}', 'QuestionController@update');
+Route::get('/forum/Question/hapus/{id_question}', 'QuestionController@destroy');
 
 Route::get('pages/profiles', 'ProfilesController@show');
 

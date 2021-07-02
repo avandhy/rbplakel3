@@ -15,7 +15,7 @@ class QuestionController extends Controller
     {
         //
         $question = \App\Models\Question::all();
-        return view('Question/index',['question'=> $question]);
+        return view('forum/Question/index',['question'=> $question]);
     }
 
 
@@ -28,7 +28,7 @@ class QuestionController extends Controller
     public function create()
     {
         //
-        return view('Question/Question');
+        return view('forum/Question/Question');
     }
 
     /**
@@ -45,7 +45,7 @@ class QuestionController extends Controller
             'isi_pertanyaan'=> $request->get('isi_pertanyaan'),
             'gambar_pertanyaan'=> $request->get('gambar_pertanyaan')
         ]);
-        return redirect('/Question');
+        return redirect('/forum');
     }
 
     /**
@@ -69,7 +69,7 @@ class QuestionController extends Controller
     {
         //
         $question = \App\Models\Question::find($id_question);
-        return view('Question/edit', ['question' => $question]);
+        return view('forum/Question/edit', ['question' => $question]);
     }
 
     /**
@@ -87,7 +87,7 @@ class QuestionController extends Controller
         $question -> isi_pertanyaan = $request -> isi_pertanyaan;
         $question -> save();
 
-        return redirect('/Question');
+        return redirect('/forum');
     }
 
     /**
@@ -101,7 +101,7 @@ class QuestionController extends Controller
         //
         $question = \App\Models\Question::find($id_question);
         $question -> delete();
-        return redirect('/Question');
+        return redirect('/forum');
     }
 }
 
