@@ -41,12 +41,12 @@
                                     </div>
                                 </div>
                             </form>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-    @endforeach
+
     @include('layouts.footers.auth')
     </div>
 @endsection
