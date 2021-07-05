@@ -21,6 +21,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $question = \App\Models\Question::all();
+        return view('dashboard',['question'=> $question]);
     }
 }
+
