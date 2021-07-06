@@ -66,5 +66,5 @@
 {!! Form::close() !!}
 
 
-<p class="text-center text-primary"><small>Tutorial by GateForLearner.com</small></p>
+<p class="text-center text-primary"><small>@Marketask</small></p>
 @endsection

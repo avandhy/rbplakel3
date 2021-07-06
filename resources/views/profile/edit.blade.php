@@ -21,9 +21,7 @@
                         </div>
                     </div>
                     <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-sm btn-info mr-4">{{ __('Connect') }}</a>
-                            <a href="#" class="btn btn-sm btn-default float-right">{{ __('Message') }}</a>
+                        <div class="d-flex justify-content-between">                 
                         </div>
                     </div>
                     <div class="card-body pt-0 pt-md-4">
@@ -32,26 +30,23 @@
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                                     <div>
                                         <span class="heading">22</span>
-                                        <span class="description">{{ __('Friends') }}</span>
+                                        <span class="description">{{ __('Files') }}</span>
                                     </div>
                                     <div>
                                         <span class="heading">10</span>
-                                        <span class="description">{{ __('Photos') }}</span>
+                                        <span class="description">{{ __('Questions') }}</span>
                                     </div>
                                     <div>
                                         <span class="heading">89</span>
-                                        <span class="description">{{ __('Comments') }}</span>
+                                        <span class="description">{{ __('Answer') }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center">
                             <h3>
-                                {{ auth()->user()->name }}<span class="font-weight-light">, 27</span>
+                                {{ auth()->user()->name }}<span class="font-weight-light"></span>
                             </h3>
-                            <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>{{ __('Bucharest, Romania') }}
-                            </div>
                             <div class="h5 mt-4">
                                 <i class="ni business_briefcase-24 mr-2"></i>{{ __('Solution Manager - Creative Tim Officer') }}
                             </div>
@@ -60,7 +55,50 @@
                             </div>
                             <hr class="my-4" />
                             <p>{{ __('Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.') }}</p>
-                            <a href="#">{{ __('Show more') }}</a>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Change Detail Profile
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Detail Profile</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="judul">University</label>
+                                 <input type="text" class="form-control form-control-alternative" id="judul" name="judul" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="judul">Major</label>
+                                 <input type="text" class="form-control form-control-alternative" id="judul" name="judul" required>
+                                </div>
+
+                                <form>
+                                <label class="form-control-label" for="judul">Motto</label>
+                                <textarea class="form-control form-control-alternative" rows="3" placeholder="Tulis motto kamu disini ..."></textarea>
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -109,6 +147,7 @@
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
+
                                 </div>
 
                                 <div class="text-center">

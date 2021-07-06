@@ -289,7 +289,8 @@
 
 <!-- DISINI MULAI USER MANAGEMENT-->
 
-<div class="row">
+<div class="card-body border-0">
+<table class="table align-items-center">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Users Management</h2>
@@ -300,7 +301,6 @@
     </div>
 </div>
 
-
 @if ($message = Session::get('success'))
 <div class="alert alert-success">
   <p>{{ $message }}</p>
@@ -308,16 +308,18 @@
 @endif
 
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
+<thead class="thead-light">
  <tr>
-   <th>No</th>
-   <th>Name</th>
-   <th>Email</th>
-   <th>Roles</th>
+   <th scope="col">No</th>
+   <th scope="col">Name</th>
+   <th scope="col">Email</th>
+   <th scope="col">Roles</th>
    <th width="280px">Action</th>
  </tr>
  @foreach ($data as $key => $user)
   <tr>
+  
     <td>{{ ++$i }}</td>
     <td>{{ $user->name }}</td>
     <td>{{ $user->email }}</td>
