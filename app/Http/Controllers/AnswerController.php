@@ -52,7 +52,7 @@ class AnswerController extends Controller
             'gambar_jawaban'=> $request->get('gambar_jawaban'),
             'id_question' => $id_question
         ]);
-        return redirect('/answer');
+        return redirect()->route('answer', [$id_question]);
     }
 
     /**

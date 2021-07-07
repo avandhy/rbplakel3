@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/report/hapus/{id}', 'ReportController@destroy');
 });
 //forum
-Route::get('/forum/read/{id_question}','AnswerController@index'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
+Route::get('/forum/read/{id_question}','AnswerController@index')->name('answer'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
 Route::get('/forum/read/{id_question}/answer', 'AnswerController@create');
 Route::post('/forum/read/{id_question}/store', 'AnswerController@store');
 Route::get('/forum/read/{id_question}/edit/{id_answer}', 'AnswerController@edit');
