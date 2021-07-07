@@ -89,17 +89,17 @@
                         </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icons') }}">
+                    <a class="nav-link" href="/fiturfile">
                         <i class="collection"></i> {{ __('MyFile') }}
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('map') }}">
+                    <a class="nav-link" href="/forum">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Forum') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
+                    <a class="nav-link" href="/report">
                       <i class="ni ni-bullet-list-67 text-default"></i>
                       <span class="nav-link-text">Report</span>
                     </a>
@@ -113,7 +113,7 @@
             <!-- Divider -->
             <hr class="my-3">
             <!-- Heading -->
-            
+
             </ul>
         </div>
     </div>

@@ -18,6 +18,7 @@ class ReportController extends Controller
         $report = DB::table('reports')->join('report_categories', 'reports.id_report_categories', '=', 'report_categories.id_report_categories')
                                         ->join('users', 'reports.id_user', '=', 'users.id')
                                         ->select('reports.*', 'report_categories.nama_report_categories', 'users.name')
+                                        ->latest()
                                         ->get();
         return view('Report/index',['report'=> $report]);
     }
@@ -50,7 +51,7 @@ class ReportController extends Controller
             'id_report_categories'=> $request->get('idcategories'),
             'id_user'=> $userid,
         ]);
-        return redirect('/report/create');
+        return redirect('/forum');
     }
 
     /**

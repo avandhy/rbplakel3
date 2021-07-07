@@ -17,9 +17,9 @@ class CreateAnswersTable extends Migration
             $table->increments('id_answer');
             $table->string('judul');
             $table->string('isi_jawaban');
-            $table->binary('gambar_jawaban')->nullable; //upload file, masih error
-            $table->integer('id_user')->references('id')->on('users')->nullable;
-            $table->integer('id_question')->references('id_question')->on('questions');
+            $table->binary('gambar_jawaban')->nullable(); //upload file, masih error
+            $table->integer('id_user')->references('id')->on('users')->nullable();
+            $table->integer('id_question')->references('id_question')->on('questions')->nullable();
             $table->timestamps();
 
         });
