@@ -18,8 +18,8 @@ class Question extends Model
 
     protected $primaryKey = 'id_question';
 
-    public function Question()
-    {
-        return $this->hasMany(Answer::class);
-    }
+    //public function Question()
+    //{
+    //    return $this->hasMany(Answer::class);
+   // }
 }

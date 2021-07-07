@@ -17,7 +17,7 @@ class Answer extends Model
 
     protected $primaryKey = 'id_answer';
 
-    public function Answer(){
-        return $this->belongsTo(Question::class);
-  }
+   // public function Answer(){
+     //   return $this->belongsTo(Question::class);
+  //}
 }
