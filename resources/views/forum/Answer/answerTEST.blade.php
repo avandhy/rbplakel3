@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="form-container card-body">
-                            <form role="form" method="post" action="/forum/read/{id_question}/store">
+                            <form role="form" method="post" action="/forum/read/{{$q->id_question}}/store">
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-sm-12 form-group">
@@ -41,11 +41,11 @@
                                     </div>
                                 </div>
                             </form>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
+    @endforeach
+    </div>
+    </div>
+    </div>
+    </div>
 
     @include('layouts.footers.auth')
     </div>

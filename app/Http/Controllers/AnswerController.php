@@ -12,32 +12,12 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-/*    public function index()
-    {
 
-        $answer = DB::table('answers')
-        ->select('select * from answers')
-        ->get();
-        return view('forum/Answer/index',['answer'=> $answer]);
-        $question = \App\Models\Question::all();
-        return view('forum/Question/index',['question'=> $question]);
-
-        $answer = DB::table('answers')
-            ->join('users', 'answers.id_user', '=', 'users.id')
-            ->join('question', 'answers.id_question', '=', 'question.id_question')
-            ->select('answers.*', 'question.judul as question_judul', 'question.isi_pertanyaan', 'users.name')
-            ->get();
-        return view('forum/Answer/index',['answer'=> $answer]);
-    }*/
     public function index($id_question)
     {
         //
         $question = DB::table('question')->where('id_question', $id_question )->get();
         $answer = DB::table('answers')->where('id_question', $id_question )->get();
-
-        //$answer = DB::table('answers')
-        //->select('select * from answers')
-        //->get();
         return view('forum/Answer/index',['answer'=> $answer, 'question'=> $question]);
     }
 
@@ -46,12 +26,11 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id_answer)
+    public function create($id_question)
     {
         //
-        $answer = DB:: table('answers') ->where('id_answer', $id_answer)->get()
-       ;
-        return view('forum/Answer/answerTEST', ['answer' =>$answer]);
+        $question = DB::table('question')->where('id_question', $id_question )->get();
+        return view('forum/Answer/answerTEST', ['question'=> $question]);
     }
 
     /**
@@ -60,15 +39,18 @@ class AnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id_question)
     {
         //
+        $userid = auth()->user()->id;
+        $id_question =  DB::table('question')->where('id_question', $id_question )->value('id_question');
         \App\Models\Answer::create([
             'id_answer'=>$request->get('id_answer'),
-            'id_userr'=>$request->get('id_answer'),
+            'id_user'=>$userid,
             'judul'=> $request->get('judul'),
             'isi_jawaban'=> $request->get('isi_jawaban'),
-            'gambar_jawaban'=> $request->get('gambar_jawaban')
+            'gambar_jawaban'=> $request->get('gambar_jawaban'),
+            'id_question' => $id_question
         ]);
         return redirect('/answer');
     }
