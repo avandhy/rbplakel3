@@ -25,7 +25,7 @@ class AnswerController extends Controller
         $answer = DB::table('answers')
             ->join('users', 'answers.id_user', '=', 'users.id')
             ->join('question', 'answers.id_question', '=', 'question.id_question')
-            ->select('answers.*', 'question.judul', 'question.isi_pertanyaan', 'users.name')
+            ->select('answers.*', 'question.judul as question_judul', 'question.isi_pertanyaan', 'users.name')
             ->get();
         return view('forum/Answer/index',['answer'=> $answer]);
     }
