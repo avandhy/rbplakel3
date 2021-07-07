@@ -8,26 +8,26 @@
     <body>
         <div class="container">
             <div class="card mt-5">
+                @foreach ($answer as $a)
                 <div class="card-header text-center">
-                    Berapakah 1 ditambah 1? <!-- untuk saat ini masih hard coded, kedepannya akan mengambil dari input judul pertanyaan-->
+                    {{ $a->judul }} <!-- untuk saat ini masih hard coded, kedepannya akan mengambil dari input judul pertanyaan-->
                 </div>
                 <div class="card-body">
                     <a href="/forum/read/1/answer" class="btn btn-primary">Tambah Jawaban</a>
                     <br/>
                     <br/>
                     <table class="table table-bordered table-hover table-striped">
-                        @foreach($answer as $r)
                         <thead>
                             <tr>
-                                <th>{{ $r->judul }}</th>
+                                <th>{{ $a->judul }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $r->isi_jawaban }}</td>
+                                <td>{{ $a->isi_jawaban }}</td>
                                 <td>
-                                    <a href="/forum/read/1/edit/{id_answer}{{ $r->id_answer }}" class="btn btn-warning">Edit</a>
-                                    <a href="/forum/read/1/hapus/{id_answer}{{ $r->id_answer }}" class="btn btn-danger">Hapus</a>
+                                    <a href="/forum/read/1/edit/{id_answer}{{ $a->id_answer }}" class="btn btn-warning">Edit</a>
+                                    <a href="/forum/read/1/hapus/{id_answer}{{ $a->id_answer }}" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach

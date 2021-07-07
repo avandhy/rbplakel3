@@ -8,25 +8,25 @@
             <div class="header-body"></div>
         </div>
     </div>
-    
+
     <div class="container-fluid mt--7">
         <div class="row justify-content-center">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
-                  
+
                         <div>
                             <center><h1>FORUM</h1></center>
-                          
+
                         </div>
                     </div>
                     <div class="form-container card-body">
-                  
+
                         <tbody>
                             @foreach ($question as $q)
                                 <tr>
                                     <td>
-                                        <h1 class="text-dark"> <a href="/forum/read/{id_question}">{{ $truncated = Str::limit($q->judul, 40)}}</a></h1>
+                                        <h1 class="text-dark"> <a href="/forum/read/{{ $q->id_question }}">{{ $truncated = Str::limit($q->judul, 40)}}</a></h1>
                                         <p class="text-justify">{{ $truncated = Str::limit($q->isi_pertanyaan, 100)}}
                                         <p>
 
@@ -38,7 +38,7 @@
                                 </tr>
                             @endforeach
 
-                           
+
                         </tbody>
                         <center> <a href="/forum/Question/create" class="btn btn-primary">Tambah Pertanyaan</a></center>
                     </div>

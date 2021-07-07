@@ -14,11 +14,20 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        //
+        /*
         $answer = DB::table('answers')
         ->select('select * from answers')
         ->get();
-        return view('Answer/index',['answer'=> $answer]);
+        return view('forum/Answer/index',['answer'=> $answer]);
+        $question = \App\Models\Question::all();
+        return view('forum/Question/index',['question'=> $question]);
+*/
+        $answer = DB::table('answers')
+            ->join('users', 'answers.id_user', '=', 'users.id')
+            ->join('question', 'answers.id_question', '=', 'question.id_question')
+            ->select('answers.*', 'question.judul', 'question.isi_pertanyaan', 'users.name')
+            ->get();
+        return view('forum/Answer/index',['answer'=> $answer]);
     }
 
     /**

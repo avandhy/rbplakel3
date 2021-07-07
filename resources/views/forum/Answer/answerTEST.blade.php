@@ -6,14 +6,14 @@
             <div class="header-body"></div>
         </div>
     </div>
-    @foreach ($answer as $a)
+    @foreach ($question as $q)
         <div class="container-fluid mt--7">
             <div class="row justify-content-center">
                 <div class="col-xl-8 order-xl-1">
                     <div class="card bg-secondary shadow">
                         <div class="card-header bg-white border-0">
                             <div>
-                                <h1>{{ $a->judul }}</h1>
+                                <h1>{{ $q->judul }}</h1>
                             </div>
                         </div>
                         <div class="form-container card-body">
