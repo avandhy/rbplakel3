@@ -26,32 +26,39 @@
                                             <h1 class="mb-0">Tambah Data File</h1>
                                         </div>
                                         <div class="col-4 text-right">
-                                            <a href="/fiturfile" class="btn btn-success btn-sm active"> < Kembali</a>
+                                            <a href="/fiturfile" class="btn btn-primary btn-sm active"> < Kembali</a>
                                         </div>
                                     </div>
                                 </div>
                                     <div class="card-body border-0">
 
-                                        <form action="/fiturfile/simpanfile{id}" method="POST" enctype="multipart/form-data">
+                                        <form action="/fiturfile/simpanfile" method="POST" enctype="multipart/form-data">
                                             {{ csrf_field() }}
 
                                             <div class="form-group">
-                                                <label for="judul">Nama File</label>
-                                                <input type="text" class="form-control" id="judul" name="judul" required>
+                                                <h3 for="judul">Judul File</h3>
+                                                <input type="text" class="form-control" name="nama_file" placeholder="Masukan judul dari file" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="judul">Universitas</label>
-                                                <input type="text" class="form-control" id="judul" name="judul" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="judul">Mata Kuliah</label>
-                                                <input type="text" class="form-control" id="judul" name="judul" required>
-                                            </div>
-                                            <div class="form-group" style="width: 8%">
-                                                <label for="judul">Semester</label>
-                                                <input type="text" class="form-control" id="judul" name="judul" required>
+                                                <h3 for="universitas">Universitas</h3>
+                                                <input type="text" class="form-control" name="universitas_file" placeholder="Masukan nama Universitas secara lengkap" required>
                                             </div>
 
+                                            <div class="row">
+                                                <div class="form-group col">
+                                                    <h3 for="mata kuliah">Mata Kuliah</h3>
+                                                    <input type="text" class="form-control" name="matakuliah_file" placeholder="Masukan nama mata kuliah" required>
+                                                </div>
+                                                <div class="form-group col-3" style="width: 8%">
+                                                    <h3 for="semester">Semester</h3>
+                                                    <input type="text" class="form-control" name="semester_file" placeholder="Masukan angka semester" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h3 for="deskripsi">Deskripsi</h3>
+                                                <input type="text" class="form-control" name="deskripsi_file" style="height: 100px" placeholder="Dapat berupa abstrak atau penjelasan mengenai file" required>
+                                            </div>
                                             <div class="form-group">
                                                 <label>Pilih File</label> <br/>
                                                 <input type="file" name="file">
