@@ -1,3 +1,4 @@
+<link href="/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
@@ -6,7 +7,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <img src="{{ asset('argon') }}/img/brand/marketask.png" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -54,7 +55,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
+                            <img src="{{ asset('argon') }}/img/brand/marketask.png">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -80,34 +81,29 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                         <a class="nav-link" href="{{ route('profile.edit') }}">
-                         <i class="ni ni-tv-2 text-primary"></i>{{ __('My Profile') }}
-                        </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/fiturfile">
-                        <i class="collection"></i> {{ __('MyFile') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Home') }}
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/forum">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Forum') }}
+                        <i class="ni ni-bulb-61 text-primary"></i> {{ __('Forum') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/fiturfile">
+                        <i class="ni ni-books text-primary"></i> {{ __('MyFile') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/report">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
+                      <i class="ni ni-notification-70 text-primary"></i>
                       <span class="nav-link-text">Report</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
-                    </a>
+                         <a class="nav-link" href="{{ route('profile.edit') }}">
+                         <i class="ni ni-circle-08 text-primary"></i>{{ __('MyProfile') }}
+                        </a>
                 </li>
             </ul>
             <!-- Divider -->

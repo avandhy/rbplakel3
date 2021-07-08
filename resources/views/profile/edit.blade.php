@@ -15,7 +15,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="#">
-                                    <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                                    <img src="{{ asset('argon') }}/img/theme/Sketch.jpg" class="rounded-circle">
                                 </a>
                             </div>
                         </div>
@@ -48,13 +48,13 @@
                                 {{ auth()->user()->name }}<span class="font-weight-light"></span>
                             </h3>
                             <div class="h5 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>{{ __('Solution Manager - Creative Tim Officer') }}
+                                <i class="ni business_briefcase-24 mr-2"></i>{{ __('Sistem Informasi') }}
                             </div>
                             <div>
-                                <i class="ni education_hat mr-2"></i>{{ __('University of Computer Science') }}
+                                <i class="ni education_hat mr-2"></i>{{ __('Institut Teknologi Sepuluh Nopember') }}
                             </div>
                             <hr class="my-4" />
-                            <p>{{ __('Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.') }}</p>
+                            <p>{{ __('Zald- Kalau bisa besok kenapa harus hari ini.') }}</p>
 
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
