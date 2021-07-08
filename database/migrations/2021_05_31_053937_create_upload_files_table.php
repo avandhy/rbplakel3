@@ -19,12 +19,11 @@ class CreateUploadFilesTable extends Migration
             $table->string('universitas_file');
             $table->string('matakuliah_file');
             $table->integer('semester_file');
+            $table->string('deskripsi_file');
             $table->string('file');
-            $table->float('size');
-            $table->char('extension');
             $table->integer('id_user')->references('id')->on('users')->nullable();
             $table->integer('id_file_categories')->references('id_file_categories')->on('file_categories')->nullable();
-
+            $table->timestamps();
         });
     }
 
