@@ -51,27 +51,32 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/report/update/{id}', 'ReportController@update');
     Route::get('/report/hapus/{id}', 'ReportController@destroy');
 });
-//forum
-Route::get('/forum/read/{id_question}','AnswerController@index')->name('answer'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
-Route::get('/forum/read/{id_question}/answer', 'AnswerController@create');
-Route::post('/forum/read/{id_question}/store', 'AnswerController@store');
-Route::get('/forum/read/{id_question}/edit/{id_answer}', 'AnswerController@edit');
-Route::post('/forum/read/{id_question}/update/{id_answer}', 'AnswerController@update');
-Route::get('/forum/read/{id_question}/hapus/{id_answer}', 'AnswerController@destroy');
 
-Route::get('/forum','QuestionController@index');
-Route::get('/forum/Question/create', 'QuestionController@create');
-Route::post('/forum/Question/store', 'QuestionController@store');
-Route::get('/forum/Question/edit/{id_question}', 'QuestionController@edit');
-Route::post('/forum/Question/update/{id_question}', 'QuestionController@update');
-Route::get('/forum/Question/hapus/{id_question}', 'QuestionController@destroy');
+//forum
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/forum/read/{id_question}','AnswerController@index')->name('answer'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
+    Route::get('/forum/read/{id_question}/answer', 'AnswerController@create');
+    Route::post('/forum/read/{id_question}/store', 'AnswerController@store');
+    Route::get('/forum/read/{id_question}/edit/{id_answer}', 'AnswerController@edit');
+    Route::post('/forum/read/{id_question}/update/{id_answer}', 'AnswerController@update');
+    Route::get('/forum/read/{id_question}/hapus/{id_answer}', 'AnswerController@destroy');
+
+    Route::get('/forum','QuestionController@index');
+    Route::get('/forum/Question/create', 'QuestionController@create');
+    Route::post('/forum/Question/store', 'QuestionController@store');
+    Route::get('/forum/Question/edit/{id_question}', 'QuestionController@edit');
+    Route::post('/forum/Question/update/{id_question}', 'QuestionController@update');
+    Route::get('/forum/Question/hapus/{id_question}', 'QuestionController@destroy');
 
 Route::get('pages/profiles', 'ProfilesController@show');
+});
 
-Route::get('/fiturfile', 'FileController@index');
-Route::get('/fiturfile/tambahfile', 'FileController@tambah');
-Route::post('/fiturfile/simpanfile','FileController@simpan');
-Route::get('/fiturfile/hapusfile/{id}','FileController@hapus');
-Route::get('/fiturfile/downloadfile/{id}', 'FileController@downloadFile');
-Route::get('/fiturfile/detailfile/{id}', 'FileController@detailFile');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/fiturfile', 'FileController@index');
+    Route::get('/fiturfile/tambahfile', 'FileController@tambah');
+    Route::post('/fiturfile/simpanfile','FileController@simpan');
+    Route::get('/fiturfile/hapusfile/{id}','FileController@hapus');
+    Route::get('/fiturfile/downloadfile/{id}', 'FileController@downloadFile');
+    Route::get('/fiturfile/detailfile/{id}', 'FileController@detailFile');
+});
