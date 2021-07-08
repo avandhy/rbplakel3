@@ -17,8 +17,8 @@ class CreateQuestionTable extends Migration
             $table->increments('id_question');
             $table->string('judul');
             $table->string('isi_pertanyaan');
-            $table->binary('gambar_pertanyaan')->nullable();
-            $table->integer('id_user')->references('id')->on('users')->nullable();
+            $table->binary('gambar_pertanyaan')->nullable()->default(null);
+            $table->integer('id_user')->references('id')->on('users')->nullable()->default(null);
             $table->timestamps();
 
         });

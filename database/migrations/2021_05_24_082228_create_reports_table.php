@@ -15,13 +15,13 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id_report');
-            $table->string('judul_report')->nullable();
+            $table->string('judul_report')->nullable()->default(null);
             $table->string('deskripsi_report');
-            $table->integer('id_question')->references('id_question')->on('questions')->nullable();
-            $table->integer('id_answer')->references('id_answer')->on('answers')->nullable();
-            $table->integer('id_file')->references('id_file')->on('files')->nullable();
-            $table->integer('id_report_categories')->references('id_report_categories')->on('reportcategories')->nullable();
-            $table->integer('id_user')->references('id')->on('users')->nullable();
+            $table->integer('id_question')->references('id_question')->on('questions')->nullable()->default(null);
+            $table->integer('id_answer')->references('id_answer')->on('answers')->nullable()->default(null);
+            $table->integer('id_file')->references('id_file')->on('files')->nullable()->default(null);
+            $table->integer('id_report_categories')->references('id_report_categories')->on('reportcategories')->nullable()->default(null);
+            $table->integer('id_user')->references('id')->on('users')->nullable()->default(null);
             $table->timestamps();
         });
     }
