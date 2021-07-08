@@ -30,10 +30,10 @@
                                         <h1 class="text-dark"> <a href="/forum/read/{{ $q->id_question }}">{{ $truncated = Str::limit($q->judul, 40)}}</a></h1>
                                         <p class="text-justify">{{ $truncated = Str::limit($q->isi_pertanyaan, 100)}}
                                         <p>
-                                      @if ($q->id_user == auth()->user()->id)
+                                      
                                         <a href="/forum/Question/edit/{{ $q->id_question }}" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="/forum/Question/hapus/{{ $q->id_question }}" class="btn btn-danger btn-sm">Hapus</a>
-                                      @endif
+                                     
                                         <a href="/report/create" class="btn btn-danger btn-sm">Report</a>
                                     </td>
                                 </tr>
