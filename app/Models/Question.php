@@ -13,7 +13,8 @@ class Question extends Model
     protected $fillable = [
         'judul',
         'isi_pertanyaan',
-        'gambar_pertanyaan'
+        'gambar_pertanyaan',
+        'id_user'
     ];
 
     protected $primaryKey = 'id_question';

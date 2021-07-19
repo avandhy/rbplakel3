@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/forum/read/{id_question}/store', 'AnswerController@store');
     Route::get('/forum/read/{id_question}/edit/{id_answer}', 'AnswerController@edit');
     Route::post('/forum/read/{id_question}/update/{id_answer}', 'AnswerController@update');
-    Route::get('/forum/read/{id_question}/hapus/{id_answer}', 'AnswerController@destroy');
+    Route::get('/forum/read/hapus/{id_answer}', 'AnswerController@destroy');
 
     Route::get('/forum','QuestionController@index');
     Route::get('/forum/Question/create', 'QuestionController@create');

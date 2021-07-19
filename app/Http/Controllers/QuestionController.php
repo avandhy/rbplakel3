@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -14,7 +14,11 @@ class QuestionController extends Controller
     public function index()
     {
         //
-        $question = \App\Models\Question::all();
+        //$question = \App\Models\Question::all();
+        $question = DB::table('question')->join('users', 'question.id_user', '=', 'users.id')
+                                        ->select('question.*', 'users.name')
+                                        ->latest()
+                                        ->get();
         return view('forum/Question/index',['question'=> $question]);
     }
 
@@ -40,10 +44,12 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         //
+        $userid = auth()->user()->id;
         \App\Models\Question::create([
             'judul'=> $request->get('judul'),
             'isi_pertanyaan'=> $request->get('isi_pertanyaan'),
-            'gambar_pertanyaan'=> $request->get('gambar_pertanyaan')
+            'gambar_pertanyaan'=> $request->get('gambar_pertanyaan'),
+            'id_user'=>$userid
         ]);
         return redirect('/forum');
     }

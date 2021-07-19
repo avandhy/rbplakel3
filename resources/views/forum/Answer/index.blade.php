@@ -38,10 +38,8 @@
                                 <tr>
                                     <td>{{ $a->isi_jawaban }}</td>
                                     <td>
-                                        <a href="/forum/read/{{ $a->id_question }}/edit/{{ $a->id_answer }}"
-                                            class="btn btn-warning">Edit</a>
-                                        <a href="/forum/read/1/hapus/{{ $a->id_question }}"
-                                            class="btn btn-danger">Hapus</a>
+                                        <a href="/forum/read/{{ $q->id_question }}/edit/{{ $a->id_answer }}" class="btn btn-warning">Edit</a>
+                                        <a href="/forum/read/hapus/{{ $a->id_answer }}" class="btn btn-danger">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

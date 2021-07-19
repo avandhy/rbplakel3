@@ -76,7 +76,7 @@ class AnswerController extends Controller
     {
         //
         $answer = \App\Models\Answer::find($id);
-        return view('Answer/edit', ['answer' => $answer]);
+        return view('forum.Answer/edit', ['answer' => $answer]);
     }
 
     /**
@@ -103,12 +103,12 @@ class AnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_answer)
     {
         //
-        $answer = \App\Models\Answer::find($id);
+        $answer = \App\Models\Answer::find($id_answer);
         $answer -> delete();
-        return redirect('/answer');
+        return redirect()->back();
     }
 }
 
