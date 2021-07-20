@@ -15,8 +15,12 @@ class AnswerController extends Controller
 
     public function index($id_question)
     {
-        //
-        $question = DB::table('question')->where('id_question', $id_question )->get();
+        //->where('id_question', $id_question )
+        $question = DB::table('question')
+        ->join('users', 'answers.id_user', '=', 'users.id')
+                                        ->select('answers.*', 'users.name')
+                                        ->latest()
+                                        ->get();
         $answer = DB::table('answers')->where('id_question', $id_question )->get();
         return view('forum/Answer/index',['answer'=> $answer, 'question'=> $question]);
     }

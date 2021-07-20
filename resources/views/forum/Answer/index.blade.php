@@ -31,16 +31,39 @@
                             @foreach($answer as $a)
                             <thead>
                                 <tr>
-                                    <th style="font-size:20px">{{ $a->judul }}</th>
+                                    <th style="font-size:20px">
+                                        <div class="media m-0">
+                                            <div class="d-flex mr-3">
+                                                <a href=""><img class="img-fluid rounded-circle" src="{{ asset('argon') }}/img/theme/sketch.jpg" alt="User"></a>
+                                            </div>
+                                            {{ $a->judul }}
+                                        <div class="dropdown float-right">
+                                            <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+                                            <em class="fa fa-ellipsis-h"></em>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                @if (auth()->user()->id == $q -> id_user)
+                                                <a class="dropdown-item" href="/forum/read/{{ $q->id_question }}/edit/{{ $a->id_answer }}">Edit</a>
+                                                <a class="dropdown-item" href="/forum/read/hapus/{{ $a->id_answer }}">Delete</a>
+                                                @endif
+                                                <a class="dropdown-item" href="/report/create">Report</a>
+                                            </div>
+                                        </div><!--/ dropdown -->
+                                        <div class="media m-0">
+                                            <div class="d-flex mr-3">
+                                                <a href=""><img class="img-fluid rounded-circle" src="{{ asset('argon') }}/img/theme/sketch.jpg" alt="User"></a>
+                                            </div>
+                                            <div class="media-body">
+                                                <p class="m-0">{{ $q ->name }}</p>
+                                                <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
+                                            </div>
+                                        </div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>{{ $a->isi_jawaban }}</td>
-                                    <td>
-                                        <a href="/forum/read/{{ $q->id_question }}/edit/{{ $a->id_answer }}" class="btn btn-warning">Edit</a>
-                                        <a href="/forum/read/hapus/{{ $a->id_answer }}" class="btn btn-danger">Hapus</a>
-                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
