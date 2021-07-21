@@ -37,7 +37,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-8">
-                            <p class="teksbesar">File Saya</p>
+                            <p class="teksbesar">Ini buat home yg semua file dari semua user disini</p>
                         </div>
                         <div class="col-4">
                             <br/>

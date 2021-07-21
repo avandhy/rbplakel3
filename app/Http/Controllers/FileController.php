@@ -14,6 +14,12 @@ class FileController extends Controller
         return view('viewfile.liatfile',['upload_files' => $upload_files]);
     }
 
+    public function pangkalan()
+    {
+        $upload_files = DB::table('upload_files')->get();
+        return view('viewfile.pangkalanfile',['upload_files' => $upload_files]);
+    }
+
     public function tambah()
     {
         return view('viewfile.tambahfile');
@@ -71,5 +77,18 @@ class FileController extends Controller
     {
         $upload_files = DB::table('upload_files')->where('id_file' ,$id)->get();
         return view('viewfile.detailfile',['upload_files' => $upload_files]);
+    }
+
+    public function cariFile(Request $request)
+    {
+        $cari = $request->cari;
+
+        $upload_files = DB::table('upload_files')->where('nama_file' , 'like' , "%" .$cari. "%")->get();
+        $upload_files = DB::table('upload_files')->where('universitas_file' , 'like' , "%" .$cari. "%")->get();
+        $upload_files = DB::table('upload_files')->where('semester_file' , 'like' , "%" .$cari. "%")->get();
+        $upload_files = DB::table('upload_files')->where('matakuliah_file' , 'like' , "%" .$cari. "%")->get();
+        $upload_files = DB::table('upload_files')->where('deskripsi_file' , 'like' , "%" .$cari. "%")->get();
+
+        return view('viewfile.liatfile',['upload_files' => $upload_files]);
     }
 }

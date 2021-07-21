@@ -23,7 +23,7 @@
                                 <div class="card-header border-0">
                                     <div class="row align-items-center">
                                         <div class="col-8">
-                                            <h1 class="mb-0">Tambah Data File</h1>
+                                            <h1 class="mb-0">Unggah File</h1>
                                         </div>
                                         <div class="col-4 text-right">
                                             <a href="/fiturfile" class="btn btn-primary btn-sm active"> < Kembali</a>
@@ -60,7 +60,7 @@
                                                 <input type="text" class="form-control" name="deskripsi_file" style="height: 100px" placeholder="Dapat berupa abstrak atau penjelasan mengenai file" required>
                                             </div>
                                             <div class="form-group">
-                                                <label>Pilih File</label> <br/>
+                                                <h3>Pilih File</h3> <br/>
                                                 <input type="file" name="file">
                                             </div>
 
