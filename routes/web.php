@@ -31,15 +31,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('roles', 'RoleController');
     Route::resource('users', 'UserController');
-    Route::resource('blogs', 'BlogController');
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');
-	Route::get('map', function () {return view('pages.maps');})->name('map');
-	Route::get('icons', function () {return view('pages.icons');})->name('icons');
-	Route::get('table-list', function () {return view('pages.tables');})->name('table');
+    //Zaldi baru
+    Route::post('profile', ['as' => 'profile.store', 'uses' => 'ProfileController@store']);
+    Route::post('profile', ['as' => 'profile.index', 'uses' => 'ProfileController@index']);
+    
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+
+
 });
 
 //Report
@@ -69,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/forum/Question/hapus/{id_question}', 'QuestionController@destroy');
 
 Route::get('pages/profiles', 'ProfilesController@show');
+Route::post('pages/profiles', 'ProfilesController@store');
 });
 
 

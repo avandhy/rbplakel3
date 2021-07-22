@@ -28,18 +28,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                                    <div>
-                                        <span class="heading">22</span>
-                                        <span class="description">{{ __('Files') }}</span>
-                                    </div>
-                                    <div>
-                                        <span class="heading">10</span>
-                                        <span class="description">{{ __('Questions') }}</span>
-                                    </div>
-                                    <div>
-                                        <span class="heading">89</span>
-                                        <span class="description">{{ __('Answer') }}</span>
-                                    </div>
+            
                                 </div>
                             </div>
                         </div>
@@ -48,22 +37,22 @@
                                 {{ auth()->user()->name }}<span class="font-weight-light"></span>
                             </h3>
                             <div class="h5 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>{{ __('Sistem Informasi') }}
+                                <i class="ni business_briefcase-24 mr-2"></i>{{ auth()->user()->major }}
                             </div>
                             <div>
-                                <i class="ni education_hat mr-2"></i>{{ __('Institut Teknologi Sepuluh Nopember') }}
+                                <i class="ni education_hat mr-2"></i>{{ auth()->user()->university }}
                             </div>
                             <hr class="my-4" />
-                            <p>{{ __('Zald- Kalau bisa besok kenapa harus hari ini.') }}</p>
+                            <p>{{auth()->user()->motto }}</p>
 
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Change Detail Profile
+                            Add Detail Profile
                             </button>
 
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="form">
                                 <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Detail Profile</h5>
@@ -71,34 +60,41 @@
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                
                                 <div class="modal-body">
-                                <div class="form-group">
-                                    <label class="form-control-label" for="judul">University</label>
-                                 <input type="text" class="form-control form-control-alternative" id="judul" name="judul" required>
+
+                                <form action="/profile" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+
+                                <div class="form-group" >
+                                    <label class="form-control-label" for="university">University</label>
+                                 <input type="text" class="form-control" placeholder="Universitas kamu" name="university" id="input-university" value="{{ auth()->user()->university }}" required>
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="form-control-label" for="judul">Major</label>
-                                 <input type="text" class="form-control form-control-alternative" id="judul" name="judul" required>
+                                <div class="form-group" >
+                                    <label class="form-control-label" for="major"> Major</label>
+                                 <input type="text" class="form-control " placeholder="Jurusan Kamu" name="major" required>
                                 </div>
 
                                 <form>
-                                <label class="form-control-label" for="judul">Motto</label>
-                                <textarea class="form-control form-control-alternative" rows="3" placeholder="Tulis motto kamu disini ..."></textarea>
+                                <label class="form-control-label" for="motto">Motto</label>
+                                <textarea class="form-control form-control-alternative" rows="3" placeholder="Tulis motto kamu disini"></textarea>
                                 </form>
+                                
+                                <div class="form-group" method="put" enctype="multipart/form-data">
+                                    <label class="form-control-label" for="major"> Foto Kamu</label>
+                                 <input type="file" class="form-control form-control-alternative" id="photo" name="photo" required>
+                                </div>
+
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
+                                </div>
                                 </div>
                                 </div>
                             </div>
                             </div>
-
-
-
-
-
                         </div>
                     </div>
                 </div>

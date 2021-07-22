@@ -18,6 +18,29 @@ class ProfileController extends Controller
         return view('profile.edit');
     }
 
+    //ZALDI EDITTTTTTTT
+    public function index()
+    {
+        $upload_profile = DB::table('users')->get();
+        return view('profile.edit',['users' => $upload_profile]);
+    }
+
+    public function store(Request $request){
+
+		// menyimpan data file yang diupload ke variabel $upload_file
+		$upload_profile = $request->university;
+        $upload_profile = $request->major;
+        $upload_profile = $request->motto;
+
+		Profile::create([
+			'university' => $request->university,
+			'major' => $request->major,
+            'motto' => $request->motto,
+            'id_user' => $request->id_user,
+		]);
+
+		return redirect('/profile');
+	}
     /**
      * Update the profile
      *
@@ -33,6 +56,13 @@ class ProfileController extends Controller
         auth()->user()->update($request->all());
 
         return back()->withStatus(__('Profile successfully updated.'));
+
+                
+        //if ($request -> hasFile('photo')){
+          //  $request->file('photo')->move('images/',$request->file('photo')->getClientOriginalName())
+        //}
+        //return back()->withStatus(__('Photo profile successfully updated.'));
+
     }
 
     /**

@@ -12,4 +12,15 @@ class Profile extends Model
         return $this->belongsTo('User');
     }
     use HasFactory;
+    protected $fillable = [
+        'university',
+        'major',
+        //'id_question',
+        //'id_answer',
+        //'id_file',
+        'semester',
+        'motto',
+        'photo'
+
+    ];
 }

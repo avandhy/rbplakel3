@@ -24,7 +24,9 @@ class CreateUsersTable extends Migration
 
             //tambahan baru
             $table->string('university')->nullable()->default(null);
+            $table->string('major')->nullable()->default(null);
             $table->integer('semester')->nullable()->default(null);
+            $table->string('motto')->nullable()->default(null);
             $table->binary('photo')->nullable()->default(null);
 
 
