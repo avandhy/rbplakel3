@@ -41,22 +41,23 @@
     <br/>
     <div class="container-fluid">
 
-                <div>
-                    <a href="/fiturfile" class="btn btn-primary btn-sm active"> < Kembali</a>
-                </div>
+
 
                 <br/>
                 @foreach ( $upload_files as $f)
 
                     <div>
                         <h2 class="textalign">{{$f->nama_file}}</h2>
-                        <p class="textalign textcolor">{{$f->matakuliah_file}} | {{$f->universitas_file}} | Semester {{$f->semester_file}}</p>
+                        <p class="textalign textcolor">{{$f->matakuliah_file}} | {{$f->universitas_file}} | Semester {{$f->semester_file}} | Posted by: {{$f->nama_user}}</p>
                     </div>
                     <div class="row">
                         <div class="col-5"></div>
                         <div class="col-2">
                             <div class="row">
-                                <a href="/fiturfile/downloadfile/{id}" class="btn btn-success btn-sm active">Download File</a> <a href="/fiturfile/hapusfile/{{$f->id_file}}" class="btn btn-warning btn-sm active">Hapus File</a>
+                                <a href="/fiturfile/downloadfile/{{$f->id_file}}" class="btn btn-success btn-sm active">Download File</a>
+                                @if (auth()->user()->id == $f -> id_user)
+                                <a href="/fiturfile/hapusfile/{{$f->id_file}}" class="btn btn-warning btn-sm active">Hapus File</a>
+                                @endif
                             </div>
 
                         </div>

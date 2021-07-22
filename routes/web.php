@@ -74,6 +74,7 @@ Route::get('pages/profiles', 'ProfilesController@show');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/fiturfile', 'FileController@index');
+    Route::get('/semuafile', 'FileController@pangkalan');
     Route::get('/pangkalanfile', 'FileController@pangkalan');
     Route::get('/fiturfile/tambahfile', 'FileController@tambah');
     Route::post('/fiturfile/simpanfile','FileController@simpan');

@@ -12,7 +12,8 @@ class FileController extends Controller
 {
     public function index()
     {
-        $upload_files = DB::table('upload_files')->get();
+        $userid = auth()->user()->id;
+        $upload_files = DB::table('upload_files')->where("id_user" ,  $userid)->get();
         return view('viewfile.liatfile',['upload_files' => $upload_files]);
     }
 
@@ -29,6 +30,8 @@ class FileController extends Controller
 
 	public function simpan(Request $request){
 
+        $userid = auth()->user()->id;
+        $namauser = auth()->user()->name;
 		// menyimpan data file yang diupload ke variabel $upload_file
 		$upload_files = $request->nama_file;
         $upload_files = $request->universitas_file;
@@ -36,8 +39,8 @@ class FileController extends Controller
         $upload_files = $request->semester_file;
         $upload_files = $request->deskripsi_file;
         $upload_files = $request->file;
-        $upload_files = $request->id_user;
-        $upload_files = $request->id_file_categories;
+        $upload_files = $userid;
+        $upload_files = $namauser;
 
         $upload_files = $request->file('file');
 		$nama_file = time()."_".$upload_files->getClientOriginalName();
@@ -52,12 +55,12 @@ class FileController extends Controller
             'matakuliah_file' => $request->matakuliah_file,
             'semester_file' => $request->semester_file,
             'deskripsi_file' => $request->deskripsi_file,
-            'file' => $request->file,
-            'id_user' => $request->id_user,
-            'id_file_categories'=> $request->id_file_categories,
+            'file' => $nama_file,
+            'id_user' => $userid,
+            'nama_user' => $namauser
 		]);
 
-		return redirect('/fiturfile');
+		return redirect('/semuafile');
 	}
 
     public function hapus($id)
@@ -70,9 +73,9 @@ class FileController extends Controller
     }
 
     public function downloadFile($id){
-        $filePath = public_path('data_file\1626937347_Closing Ceremony MPTI 2021.pdf' , $id);
+        $filePath = DB::table('upload_files')->where('id_file', $id)-> value('file');
 
-        return response()->download($filePath);
+        return response()->download('data_file/'.$filePath);
     }
 
     public function detailFile($id)

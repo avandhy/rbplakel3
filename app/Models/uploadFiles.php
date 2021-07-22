@@ -11,5 +11,5 @@ class uploadFiles extends Model
 
     protected $table = "upload_files";
     protected $primarykey = "id_file";
-    protected $fillable = ['nama_file','universitas_file', 'matakuliah_file', 'semester_file','deskripsi_file', 'file'];
+    protected $fillable = ['nama_file','universitas_file', 'matakuliah_file', 'semester_file','deskripsi_file', 'file', 'id_user', 'nama_user'];
 }

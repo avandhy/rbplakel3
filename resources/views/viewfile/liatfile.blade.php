@@ -65,8 +65,8 @@
 
                             <div class="card w-100">
                                 <div class="card-header">
-                                    <h2 class="card-title"><a href="/fiturfile/detailfile/{{$f->id_file}}" class="button1">{{ $f->nama_file}}</a></h2>
-                                    <h4 class="card-title" style="color: rgb(110, 110, 110)"> {{$f->matakuliah_file}} | {{$f->universitas_file}} | Semester {{$f->semester_file}}</h4>
+                                    <h2 class="card-title"><a href="/fiturfile/detailfile/{{$f->id_file}}" class="button1 stretched-link align-content-end">{{ $f->nama_file}}</a></h2>
+                                    <h4 class="card-title" style="color: rgb(110, 110, 110)"> {{$f->matakuliah_file}} | {{$f->universitas_file}} | Semester {{$f->semester_file}} | Created by: {{$f->nama_user}}</h4>
                                 </div>
                             </div>
                             @endforeach

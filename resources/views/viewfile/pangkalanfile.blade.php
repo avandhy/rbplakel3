@@ -22,6 +22,7 @@
             font-size: 36pt;
             font-weight: bold;
         }
+
     </style>
 </head>
 <body>
@@ -37,7 +38,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-8">
-                            <p class="teksbesar">Ini buat home yg semua file dari semua user disini</p>
+                            <p class="teksbesar">Home File</p>
                         </div>
                         <div class="col-4">
                             <br/>
@@ -65,8 +66,8 @@
 
                             <div class="card w-100">
                                 <div class="card-header">
-                                    <h2 class="card-title"><a href="/fiturfile/detailfile/{{$f->id_file}}" class="button1">{{ $f->nama_file}}</a></h2>
-                                    <h4 class="card-title" style="color: rgb(110, 110, 110)"> {{$f->matakuliah_file}} | {{$f->universitas_file}} | Semester {{$f->semester_file}}</h4>
+                                    <h2 class="card-title"><a href="/fiturfile/detailfile/{{$f->id_file}}" class="button1 stretched-link">{{ $f->nama_file}}</a></h2>
+                                    <h4 class="card-title" style="color: rgb(110, 110, 110)"> {{$f->matakuliah_file}} | {{$f->universitas_file}} | Semester {{$f->semester_file}} | Posted by: {{$f->nama_user}}</h4>
                                 </div>
                             </div>
                             @endforeach
