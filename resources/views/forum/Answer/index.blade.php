@@ -4,7 +4,9 @@
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
         <div class="container-fluid">
             <div class="header-body">
-                    <title>ini judul halaman</title>
+                @foreach ($question as $q)
+                    <title> {{ $q->judul }}</title>
+                @endforeach
             </div>
         </div>
     </div>
@@ -13,61 +15,74 @@
             <div class="col-xl-10 order-xl-1">
                 <div class="card bg-secondary shadow">
                     @foreach ($question as $q)
-                    <div class="card-header bg-white border-0" style="font-size:30px">
-                        <div>
-                            {{ $q->judul }}
+                        <div class="card-header bg-white border-0" style="font-size:30px">
+                            <div>
+                                {{ $q->judul }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
-                        {{ $q->isi_pertanyaan }}
-                    </div>
+                        <div class="col-sm-12">
+                            {{ $q->isi_pertanyaan }}
+                        </div>
                     @endforeach
-                    <div class="card-body">
-                        @foreach ( $question as $q)
-                        <a href="/forum/read/{{ $q->id_question }}/answer" class="btn btn-primary">Tambah Jawaban</a>
-                        <br />
-                        <br />
-                        <table class="table table-bordered table-hover table-striped">
-                            @foreach($answer as $a)
-                            <thead>
-                                <tr>
-                                    <th style="font-size:20px">
-                                        <div class="media m-0">
+                    <div class="card-body container-fluid">
+                        @foreach ($question as $q)
+                            <a href="/forum/read/{{ $q->id_question }}/answer" class="btn btn-primary">Tambah Jawaban</a>
+                            <br />
+                            <br />
+                            <table class="table table-bordered table-hover table-striped">
+                                @foreach ($answer as $a)
+                                    <thead>
+                                        <tr>
+                                            <th style="font-size:20px">
+                                                <div class="media m-0 float-left">
+                                                    <div class="d-flex mr-3 col">
+                                                        <a href=""><img class="img-fluid rounded-circle img-thumbnail"
+                                                                src="{{ asset('argon') }}/img/theme/sketch.jpg" alt="User"
+                                                                style="max-width: 50px"></a>
+                                                    </div>
+                                                    <div class= "col">
+                                                        {{ $a->judul }}
+                                                    </div>
+                                                    <div class="dropdown float-right col">
+                                                        <button class="btn btn-flat btn-flat-icon" type="button"
+                                                            data-toggle="dropdown" aria-expanded="false">
+                                                            <em class="fa fa-ellipsis-h"></em>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-scale dropdown-menu-right"
+                                                            role="menu"
+                                                            style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                            @if (auth()->user()->id == $q->id_user)
+                                                                <a class="dropdown-item"
+                                                                    href="/forum/read/{{ $q->id_question }}/edit/{{ $a->id_answer }}">Edit</a>
+                                                                <a class="dropdown-item"
+                                                                    href="/forum/read/hapus/{{ $a->id_answer }}">Delete</a>
+                                                            @endif
+                                                            <a class="dropdown-item" href="/report/create">Report</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--/ dropdown -->
+                                                {{-- <div class="media m-0">
                                             <div class="d-flex mr-3">
                                                 <a href=""><img class="img-fluid rounded-circle" src="{{ asset('argon') }}/img/theme/sketch.jpg" alt="User"></a>
                                             </div>
-                                            {{ $a->judul }}
-                                        <div class="dropdown float-right">
-                                            <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
-                                            <em class="fa fa-ellipsis-h"></em>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                                @if (auth()->user()->id == $q -> id_user)
-                                                <a class="dropdown-item" href="/forum/read/{{ $q->id_question }}/edit/{{ $a->id_answer }}">Edit</a>
-                                                <a class="dropdown-item" href="/forum/read/hapus/{{ $a->id_answer }}">Delete</a>
-                                                @endif
-                                                <a class="dropdown-item" href="/report/create">Report</a>
-                                            </div>
-                                        </div><!--/ dropdown -->
-                                        <div class="media m-0">
-                                            <div class="d-flex mr-3">
-                                                <a href=""><img class="img-fluid rounded-circle" src="{{ asset('argon') }}/img/theme/sketch.jpg" alt="User"></a>
-                                            </div>
+                                            @foreach ($question as $q)
                                             <div class="media-body">
                                                 <p class="m-0">{{ $q ->name }}</p>
                                                 <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>
                                             </div>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $a->isi_jawaban }}</td>
-                                </tr>
+                                            @endforeach
+                                        </div> --}}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $a->isi_jawaban }}</td>
+                                        </tr>
+                                    </tbody>
                                 @endforeach
-                            </tbody>
-                        </table>
+                            </table>
                         @endforeach
                     </div>
                 </div>

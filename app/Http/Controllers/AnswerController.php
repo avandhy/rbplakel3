@@ -14,13 +14,13 @@ class AnswerController extends Controller
      */
 
     public function index($id_question)
-    {
+    {        /**->join('users', 'answers.id_user', '=', 'users.id')
+        ->select('answers.*', 'users.name')
+        ->latest()
+        ->get();*/
         //->where('id_question', $id_question )
-        $question = DB::table('question')
-        ->join('users', 'answers.id_user', '=', 'users.id')
-                                        ->select('answers.*', 'users.name')
-                                        ->latest()
-                                        ->get();
+        $question = DB::table('question')->where('id_question', $id_question )
+        ->get();
         $answer = DB::table('answers')->where('id_question', $id_question )->get();
         return view('forum/Answer/index',['answer'=> $answer, 'question'=> $question]);
     }
@@ -80,7 +80,8 @@ class AnswerController extends Controller
     {
         //
         $answer = \App\Models\Answer::find($id);
-        return view('forum.Answer/edit', ['answer' => $answer]);
+        $question = DB::table('question')->get() ;
+        return view('forum.Answer/edit', ['answer' => $answer, 'question'=> $question]);
     }
 
     /**
