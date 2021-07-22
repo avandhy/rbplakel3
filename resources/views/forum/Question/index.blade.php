@@ -222,7 +222,7 @@ text-align: center;
           <div class="row justify-content-end ">
               <a href="/forum/Question/create" class="btn btn-primary col-lg-3  my-4 m">+ Ajukan Pertanyaan</a>
           </div>
-          <div class="row justify-content-lg-center">
+          <div class="row justify-content-lg-center mb-5">
               <div class="col-lg-9 ">
                   @foreach ($question as $q)
                   <div class="cardbox shadow-lg bg-white">
@@ -274,7 +274,6 @@ text-align: center;
                               <li><a><span>242 Likes</span></a></li>
                           </ul>
                       </div><!--/ cardbox-base -->--}}
-
                   </div><!--/ cardbox -->
                   @endforeach
               </div><!--/ col-lg-3 -->

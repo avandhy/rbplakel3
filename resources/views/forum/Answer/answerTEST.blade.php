@@ -7,13 +7,14 @@
         </div>
     </div>
     @foreach ($question as $q)
-        <div class="container-fluid mt--7">
+        <div class="container-fluid mt--7 mb-5">
             <div class="row justify-content-center">
                 <div class="col-xl-8 order-xl-1">
                     <div class="card bg-secondary shadow">
                         <div class="card-header bg-white border-0">
                             <div>
-                                <h1>{{ $q->judul }}</h1>
+                                <h1 class=" text-dark">{{$q->judul}}</h1>
+                                <p class="text-justify">{{ $q->isi_pertanyaan}}</p>
                             </div>
                         </div>
                         <div class="form-container card-body">
@@ -41,12 +42,14 @@
                                     </div>
                                 </div>
                             </form>
-    @endforeach
-    </div>
-    </div>
-    </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
 
     @include('layouts.footers.auth')
-    </div>
+
 @endsection

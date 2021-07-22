@@ -51,7 +51,7 @@ class ReportController extends Controller
             'id_report_categories'=> $request->get('idcategories'),
             'id_user'=> $userid,
         ]);
-        return redirect('/forum');
+        return redirect('/report/create');
     }
 
     /**
