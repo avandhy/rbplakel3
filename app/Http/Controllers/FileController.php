@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\uploadFiles;
+use Illuminate\Support\Facades\Storage;
+
 
 class FileController extends Controller
 {
@@ -68,7 +70,7 @@ class FileController extends Controller
     }
 
     public function downloadFile($id){
-        $filePath = DB::table('upload_files')->where('id_file', $id);
+        $filePath = public_path('data_file\1626937347_Closing Ceremony MPTI 2021.pdf' , $id);
 
         return response()->download($filePath);
     }
@@ -83,11 +85,13 @@ class FileController extends Controller
     {
         $cari = $request->cari;
 
-        $upload_files = DB::table('upload_files')->where('nama_file' , 'like' , "%" .$cari. "%")->get();
-        $upload_files = DB::table('upload_files')->where('universitas_file' , 'like' , "%" .$cari. "%")->get();
-        $upload_files = DB::table('upload_files')->where('semester_file' , 'like' , "%" .$cari. "%")->get();
-        $upload_files = DB::table('upload_files')->where('matakuliah_file' , 'like' , "%" .$cari. "%")->get();
-        $upload_files = DB::table('upload_files')->where('deskripsi_file' , 'like' , "%" .$cari. "%")->get();
+        $upload_files = DB::table('upload_files')
+                ->where('nama_file' , 'like' , "%" .$cari. "%")
+                ->orWhere('universitas_file' , 'like' , "%" .$cari. "%")
+                ->orWhere('semester_file' , 'like' , "%" .$cari. "%")
+                ->orWhere('matakuliah_file' , 'like' , "%" .$cari. "%")
+                ->orWhere('deskripsi_file' , 'like' , "%" .$cari. "%")
+                ->get();
 
         return view('viewfile.liatfile',['upload_files' => $upload_files]);
     }

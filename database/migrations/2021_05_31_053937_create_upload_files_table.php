@@ -22,7 +22,6 @@ class CreateUploadFilesTable extends Migration
             $table->longText('deskripsi_file');
             $table->string('file');
             $table->integer('id_user')->references('id')->on('users')->nullable()->default(null);
-            $table->integer('id_file_categories')->references('id_file_categories')->on('file_categories')->nullable()->default(null);
             $table->timestamps();
         });
     }
