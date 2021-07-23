@@ -35,9 +35,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
     //Zaldi baru
-    Route::post('profile', ['as' => 'profile.store', 'uses' => 'ProfileController@store']);
-    Route::post('profile', ['as' => 'profile.index', 'uses' => 'ProfileController@index']);
-    
+    //Route::post('profile', ['as' => 'profile.store', 'uses' => 'ProfileController@store']);
+    //Route::post('profile', ['as' => 'profile.index', 'uses' => 'ProfileController@index']);
+    Route::post('/profile/store', 'PofileController@store');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
 

@@ -46,55 +46,9 @@
                             <p>{{auth()->user()->motto }}</p>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Add Detail Profile
-                            </button>
-
+                            
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="form">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Detail Profile</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                
-                                <div class="modal-body">
-
-                                <form action="/profile" method="POST" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-
-                                <div class="form-group" >
-                                    <label class="form-control-label" for="university">University</label>
-                                 <input type="text" class="form-control" placeholder="Universitas kamu" name="university" id="input-university" value="{{ auth()->user()->university }}" required>
-                                </div>
-
-                                <div class="form-group" >
-                                    <label class="form-control-label" for="major"> Major</label>
-                                 <input type="text" class="form-control " placeholder="Jurusan Kamu" name="major" required>
-                                </div>
-
-                                <form>
-                                <label class="form-control-label" for="motto">Motto</label>
-                                <textarea class="form-control form-control-alternative" rows="3" placeholder="Tulis motto kamu disini"></textarea>
-                                </form>
-                                
-                                <div class="form-group" method="put" enctype="multipart/form-data">
-                                    <label class="form-control-label" for="major"> Foto Kamu</label>
-                                 <input type="file" class="form-control form-control-alternative" id="photo" name="photo" required>
-                                </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
-                                </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -146,10 +100,32 @@
 
                                 </div>
 
+                                <div class= "form-group{{ $errors->has('university') ? ' has-danger' : '' }}" >
+                                    <label class="form-control-label" for="input-university">{{ __('University') }}</label>
+                                 <input type="text" class="form-control form-control-alternative" placeholder="Universitas kamu" name="university" id="input-university" value="{{ old('university', auth()->user()->university) }}" required>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('major') ? ' has-danger' : '' }}"  >
+                                    <label class="form-control-label" for="major"> Major</label>
+                                 <input type="text" class="form-control form-control-alternative" placeholder="Jurusan Kamu" name="major" value="{{ auth()->user()->major }}" required>
+                                </div>
+
+                                <form>
+                                <label class="form-control-label" for="motto">Motto</label>
+                                <textarea class="form-control form-control-alternative" rows="3" placeholder="Tulis motto kamu disini" value="{{ auth()->user()->motto }}"></textarea>
+                                </form>
+                                
+                                <div class="form-group" method="put" enctype="multipart/form-data">
+                                    <label class="form-control-label" for="major"> Foto Kamu</label>
+                                 <input type="file" class="form-control form-control-alternative" id="photo" name="photo" value="{{ auth()->user()->photo }}" required>
+                                </div>
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
                                 </div>
                             </div>
+
+                            
                         </form>
                         <hr class="my-4" />
                         <form method="post" action="{{ route('profile.password') }}" autocomplete="off">

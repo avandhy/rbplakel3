@@ -15,9 +15,6 @@ class Profile extends Model
     protected $fillable = [
         'university',
         'major',
-        //'id_question',
-        //'id_answer',
-        //'id_file',
         'semester',
         'motto',
         'photo'

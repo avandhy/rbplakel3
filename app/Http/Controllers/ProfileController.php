@@ -27,6 +27,7 @@ class ProfileController extends Controller
 
     public function store(Request $request){
 
+        auth()->user()->store($request->all());
 		// menyimpan data file yang diupload ke variabel $upload_file
 		$upload_profile = $request->university;
         $upload_profile = $request->major;
@@ -36,7 +37,6 @@ class ProfileController extends Controller
 			'university' => $request->university,
 			'major' => $request->major,
             'motto' => $request->motto,
-            'id_user' => $request->id_user,
 		]);
 
 		return redirect('/profile');
