@@ -35,7 +35,7 @@
                         <div class="card shadow-lg" style="width: 20rem; height:20rem;">
                             <div class="card-header bg-gradient-red"><i class="fas fa-flag" style="font-size:100px; color:white;"></i></div>
                             <div class="card-body">
-                              <h2 class="card-title"><a href="/report" class="button1 stretched-link"> Lapor</a></h2>
+                              <h2 class="card-title"><a href="/report/create" class="button1 stretched-link"> Lapor</a></h2>
                               <p class="card-text">Laporkan penyalahgunaan yang dilakukan pengguna platform ini.</p>
                             </div>
                         </div>
@@ -49,6 +49,26 @@
                             </div>
                         </div>
                     </div>
+                    @if ((auth()->user()->role == 'Admin' ))
+                    <div class="col-4 mt-4">
+                        <div class="card shadow-lg" style="width: 20rem; height:20rem;">
+                            <div class="card-header bg-gradient-gray-dark"><i class="fas fa-users" style="font-size:100px; color:white;"></i></div>
+                            <div class="card-body">
+                              <h2 class="card-title"><a href="/user" class="button1 stretched-link">Kelola User</a></h2>
+                              {{--<p class="card-text">Temukan semua file yang kamu inginkan dari database file yang telah diunggah oleh pengguna Marketask!</p>--}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 mt-4">
+                        <div class="card shadow-lg" style="width: 20rem; height:20rem;">
+                            <div class="card-header bg-gradient-red"><i class="fas fa-flag" style="font-size:100px; color:white;"></i></div>
+                            <div class="card-body">
+                              <h2 class="card-title"><a href="/report" class="button1 stretched-link">Kelola Laporan</a></h2>
+                              {{--<p class="card-text">Temukan semua file yang kamu inginkan dari database file yang telah diunggah oleh pengguna Marketask!</p>--}}
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

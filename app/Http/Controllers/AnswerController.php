@@ -19,9 +19,8 @@ class AnswerController extends Controller
         ->latest()
         ->get();*/
         //->where('id_question', $id_question )
-        $question = DB::table('question')->where('id_question', $id_question )
-        ->get();
-        $answer = DB::table('answers')->where('id_question', $id_question )->get();
+        $question = DB::table('question')->where('id_question', $id_question )->join('users', 'question.id_user', '=', 'users.id')->get();
+        $answer = DB::table('answers')->where('id_question', $id_question )->join('users', 'answers.id_user', '=', 'users.id')->get();
         return view('forum/Answer/index',['answer'=> $answer, 'question'=> $question]);
     }
 

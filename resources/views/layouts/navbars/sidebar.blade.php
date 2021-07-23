@@ -94,12 +94,12 @@
                         <i class="ni ni-books text-primary"></i> {{ __('MyFile') }}
                     </a>
                 </li>
-                <li class="nav-item">
+                {{--<li class="nav-item">
                     <a class="nav-link" href="/report">
                       <i class="ni ni-notification-70 text-primary"></i>
                       <span class="nav-link-text">Report</span>
                     </a>
-                </li>
+                </li>--}}
                 <li class="nav-item">
                          <a class="nav-link" href="{{ route('profile.edit') }}">
                          <i class="ni ni-circle-08 text-primary"></i>{{ __('MyProfile') }}

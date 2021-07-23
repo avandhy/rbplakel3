@@ -55,7 +55,7 @@
                         <div class="col-2">
                             <div class="row">
                                 <a href="/fiturfile/downloadfile/{{$f->id_file}}" class="btn btn-success btn-sm active">Download File</a>
-                                @if (auth()->user()->id == $f -> id_user)
+                                @if ((auth()->user()->id == $f -> id_user) || (auth()->user()->role == 'Admin') )
                                 <a href="/fiturfile/hapusfile/{{$f->id_file}}" class="btn btn-warning btn-sm active">Hapus File</a>
                                 @endif
                             </div>

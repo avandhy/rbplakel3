@@ -233,7 +233,7 @@ text-align: center;
                               <em class="fa fa-ellipsis-h"></em>
                               </button>
                               <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                  @if (auth()->user()->id == $q -> id_user)
+                                  @if ((auth()->user()->id == $q -> id_user) || (auth()->user()->role == 'Admin') )
                                   <a class="dropdown-item" href="/forum/Question/edit/{{ $q->id_question }}">Edit</a>
                                   <a class="dropdown-item" href="/forum/Question/hapus/{{ $q->id_question }}">Delete</a>
                                   @endif

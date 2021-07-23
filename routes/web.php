@@ -31,7 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('roles', 'RoleController');
     Route::resource('users', 'UserController');
-	Route::resource('user', 'UserController', ['except' => ['show']]);
+	//Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
     //Zaldi baru
@@ -40,21 +40,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/profile/store', 'PofileController@store');
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 
+    Route::get('pages/profiles', 'ProfilesController@show');
+    Route::post('pages/profiles', 'ProfilesController@store');
 
-});
-
-//Report
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/report', 'ReportController@index');
+    //Report
     Route::get('/report/create', 'ReportController@create');
     Route::post('/report/store', 'ReportController@store');
-    Route::get('/report/edit/{id}', 'ReportController@edit');
-    Route::post('/report/update/{id}', 'ReportController@update');
-    Route::get('/report/hapus/{id}', 'ReportController@destroy');
-});
 
-//forum
-Route::group(['middleware' => 'auth'], function () {
+
+    //forum
     Route::get('/forum/read/{id_question}','AnswerController@index')->name('answer'); // 1 disini nantinya diganti pakai {id} dimana dia mengambil id dari pertanyaan yang dipilih
     Route::get('/forum/read/{id_question}/answer', 'AnswerController@create');
     Route::post('/forum/read/{id_question}/store', 'AnswerController@store');
@@ -69,12 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/forum/Question/update/{id_question}', 'QuestionController@update');
     Route::get('/forum/Question/hapus/{id_question}', 'QuestionController@destroy');
 
-Route::get('pages/profiles', 'ProfilesController@show');
-Route::post('pages/profiles', 'ProfilesController@store');
-});
-
-
-Route::group(['middleware' => 'auth'], function () {
+    //file
     Route::get('/fiturfile', 'FileController@index');
     Route::get('/semuafile', 'FileController@pangkalan');
     Route::get('/pangkalanfile', 'FileController@pangkalan');
@@ -84,4 +73,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/fiturfile/downloadfile/{id}', 'FileController@downloadFile');
     Route::get('/fiturfile/detailfile/{id}', 'FileController@detailFile');
     Route::get('/fiturfile/carifile' , 'FileController@cariFile');
+
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/report', 'ReportController@index');
+        Route::get('/report/edit/{id}', 'ReportController@edit');
+        Route::post('/report/update/{id}', 'ReportController@update');
+        Route::get('/report/hapus/{id}', 'ReportController@destroy');
+        Route::resource('user', 'UserController', ['except' => ['show']]);
+    });
 });
+
+
+
+
+
+

@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->integer('semester')->nullable()->default(null);
             $table->string('motto')->nullable()->default(null);
             $table->binary('photo')->nullable()->default(null);
+            $table->string('role')->nullable()->default('User');
 
 
         });
