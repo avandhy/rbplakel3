@@ -72,7 +72,8 @@
                 </div>
             </div>
         </div>
-        <br>
+
+        {{-- <br>
         <br>
         <div class="flex flex-col text-center w-full mb-12">
         <br>
@@ -89,7 +90,7 @@
                                     </td>
                                 </tr>
         </table>
-        @endforeach
+        @endforeach --}}
 
 
 

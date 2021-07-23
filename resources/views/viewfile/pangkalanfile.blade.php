@@ -38,7 +38,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-8">
-                            <p class="teksbesar">Home File</p>
+                            <p class="teksbesar">Pangkalan File</p>
                         </div>
                         <div class="col-4">
                             <br/>
